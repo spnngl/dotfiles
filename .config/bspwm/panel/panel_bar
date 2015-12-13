@@ -1,5 +1,5 @@
 #! /bin/zsh
-. panel_colors
+source ~/.config/bspwm/panel/panel_colors
 
 num_mon=$(bspc query -M | wc -l)
 PADDING="  "

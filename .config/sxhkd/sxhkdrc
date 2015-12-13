@@ -3,7 +3,7 @@
 #
 
 alt + Escape
-	bspc quit
+	pkill -x panel; bspc quit
 
 alt + w
 	bspc window -c
@@ -83,7 +83,7 @@ alt + @button{1-3}
 alt + Return
 	urxvt
 
-super + space
+alt + space
 	dmenu_run
 
 # make sxhkd reload its configuration files:

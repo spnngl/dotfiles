@@ -60,6 +60,8 @@ sh ~/.fehbg &
 # hide x11 cursor
 #unclutter &
 
+compton -b &
+
 # urxvt daemon
 urxvtd -q -f -o &
 # urxvt &

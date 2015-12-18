@@ -11,25 +11,6 @@ while read -r line ; do
 			date="  %{B$COLOR_DTG_BG}%{F$COLOR_DTG_FG}  ${line#???}$PADDING%{F-}%{B-}"
 			;;
 
-        EMAIL*)
-            # email alerts
-            email="$PADDING${line#?????}$PADDING"
-            ;;
-
-        MESSAGE*)
-            # Weechat messages
-            messages="$PADDING${line#???????}$PADDING"
-            ;;
-
-        NEWS*)
-            # Newsbeuter articles
-            news="$PADDING${line#????}$PADDING"
-            ;;
-
-		MUSIC*)
-			# music info
-			music="$PADDING${line#?????}$PADDING"
-			;;
 		TIME*)
 			# clock output
 			clock="%{B$COLOR_DTG_BG}%{F$COLOR_DTG_FG}${line#????}$PADDING%{F-}%{B-}"
@@ -46,14 +27,10 @@ while read -r line ; do
 #			title="${line#?????}$PADDING$PADDING"
 #			;;
 
-		VOL*)
-			# alsa volume
-			volume="$PADDING${line#???}$PADDING"
-			;;
 
-		LINK*)
-			# wifi link
-			wifi="$PADDING${line#????}$PADDING"
+		IP*)
+			# ext ip
+			extip="$PADDING${line#????}$PADDING"
 			;;
 
 		W*)
@@ -106,5 +83,5 @@ while read -r line ; do
 			done
 			;;
 	esac
-	printf "%s\n" "%{l}${wm_infos}%{c}${music}%{r}${news}${messages}${email}${wifi}${volume}${battery}${date}${clock}"
+	printf "%s\n" "%{l}${wm_infos}%{c}${extip}${battery}${date}${clock}"
 done

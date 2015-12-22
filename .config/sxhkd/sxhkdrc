@@ -1,6 +1,8 @@
 #
 # bspwm hotkeys
 #
+#
+# mode_switch == AltGr !
 
 alt + Escape
 	pkill -x panel; bspc quit
@@ -85,6 +87,9 @@ alt + Return
 
 alt + space
 	dmenu_run
+
+mode_switch + Return
+	urxvt
 
 # make sxhkd reload its configuration files:
 alt + shift + Escape

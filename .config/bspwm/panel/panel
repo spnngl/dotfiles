@@ -46,7 +46,8 @@ done > "$PANEL_FIFO" &
 
 # external ip
 while true; do
-	echo -e "IP$(lynx --dump http://www.ipecho.net/plain)"
+	#echo -e "IP$(lynx --dump http://www.ipecho.net/plain)"
+	echo -e "IP$(iwconfig $WIFI_INTERFACE | grep ESSID: | grep -o '["^]*[a-zA-Z0-9_-]*["]' | sed 's/"//g')"
 	sleep $REFRESH_EXT_IP
 done > "$PANEL_FIFO" &
 

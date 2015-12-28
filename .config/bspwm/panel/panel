@@ -38,28 +38,64 @@ while true; do
     sleep $REFRESH_DATE
 done > "$PANEL_FIFO" &
 
-# battery
+## battery
 while true; do
 	echo -e "BAT$(acpi -b | grep -o '[[:digit:]]\+%')"
 	sleep $REFRESH_BATTERY
 done > "$PANEL_FIFO" &
 
+
+# battery
+#while true; do
+#    BATT_LEVEL=$(acpi -b | grep -o '[[:digit:]]\+%' | sed 's/%//')
+#    if [[ $(cat "$POWERSUPPLY/online") != 1 ]]; then
+#        if [[ $BATT_LEVEL -ge 80 ]]; then
+#	    	BATT_ICON=$ICON_BATTERY_FULL
+#    	elif [[ $BATT_LEVEL -ge 60 && $BATT_LEVEL -lt 80 ]]; then
+#	    	BATT_ICON=$ICON_BATTERY_THREEQUARTERS
+#    	elif [[ $BATT_LEVEL -ge 40 && $BATT_LEVEL -lt 60 ]]; then
+#	    	BATT_ICON=$ICON_BATTERY_HALF
+#    	elif [[ $BATT_LEVEL -ge 20 && $BATT_LEVEL -lt 40 ]]; then
+#	    	BATT_ICON=$ICON_BATTERY_QUARTER
+#    	elif [[ $BATT_LEVEL -lt 20 ]]; then
+#	    	BATT_ICON=$ICON_BATTERY_EMPTY
+#    	fi
+#    else
+#        BATT_ICON=$ICON_BATTERY_CHARGING
+#    fi
+#	#uncomment next and delete the line after that to see percentage
+#	#echo -e $BATT_ICON %{F$COLOR_TEXT_FG} $BATT_LEVEL%%{F-}
+#	echo -e BAT$BATT_ICON $BATT_LEVEL
+#	sleep $REFRESH_BATTERY
+#done > "$PANEL_FIFO" &
+
+# CPU freq
+while true; do
+	echo -e "CPU$(cat /proc/cpuinfo | grep 'cpu MHz' | awk '{OMFT="%.0f"; print $4/1}')MHz"
+	sleep $REFRESH_CPU
+done > "$PANEL_FIFO" &
+
+# RAM
+while true; do
+	echo -e "MEM$(free | grep Mem: | awk '{OFMT="%.1f"; print ($3/$2)*100}')%"
+	sleep $REFRESH_MEM
+done > "$PANEL_FIFO" &
+
 # external ip
 while true; do
-	#echo -e "IP$(lynx --dump http://www.ipecho.net/plain)"
 	echo -e "IP$(iwconfig $WIFI_INTERFACE | grep ESSID: | grep -o '["^]*[a-zA-Z0-9_-]*["]' | sed 's/"//g')"
 	sleep $REFRESH_EXT_IP
 done > "$PANEL_FIFO" &
 
 # dump panel into panel_bar and then into lemonbar
-zsh ~/.config/bspwm/panel/panel_bar < "$PANEL_FIFO" | lemonbar -b \
+cat "$PANEL_FIFO" | ~/.config/bspwm/panel/panel_bar | lemonbar \
     -g x"$PANEL_HEIGHT" \
+	-b \
     -f "$PANEL_FONT" \
     -f "$ICON_FONT" \
     -f "$ICON_FONT2" \
     -F "$COLOR_FOREGROUND" \
     -B "$COLOR_BACKGROUND" \
-    -u 2 \
-    | zsh &
-
+	-o -10 \ # vertical offset
+    -u 2 &
 wait

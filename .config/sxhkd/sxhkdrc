@@ -4,8 +4,6 @@
 #
 # mode_switch == AltGr !
 
-alt + Escape
-	pkill -x panel; bspc quit
 
 alt + w
 	bspc window -c
@@ -54,10 +52,7 @@ alt + ctrl + {h,j,k,l}
 alt + ctrl + {_,shift + }space
 	bspc {window -p cancel,desktop -c}
 
-alt + {h,j,k,l}
-	bspc window -e {left -10,down +10,up -10,right +10}
-
-alt + shift + {h,j,k,l}
+alt + {r,s,t,c}
 	bspc window -e {right -10,up +10,down -10,left +10}
 
 alt + ctrl + {1-9}
@@ -90,6 +85,10 @@ alt + space
 
 mode_switch + Return
 	urxvt
+
+# the night is dark and full of terror
+alt + Escape
+	pkill -x panel; bspc quit
 
 # make sxhkd reload its configuration files:
 alt + shift + Escape

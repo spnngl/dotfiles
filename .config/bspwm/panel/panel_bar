@@ -35,6 +35,10 @@ while read -r line ; do
 			mem="$PADDING${line#???}$PADDING"
 			;;
 
+		NET*)
+			net="$PADDING${line#???}$PADDING"
+			;;
+
 		IP*)
 			# ext ip
 			extip="$PADDING${line#??}$PADDING"
@@ -90,5 +94,5 @@ while read -r line ; do
 			done
 			;;
 	esac
-	printf "%s\n" "%{l}${wm_infos}%{c}${extip}${cpuf}${mem}${battery}${date}${clock}"
+	printf "%s\n" "%{l}${wm_infos}%{c}${net}${extip}${cpuf}${mem}${battery}%{r}${clock}${date}"
 done

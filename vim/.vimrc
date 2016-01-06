@@ -24,7 +24,7 @@ set colorcolumn=90
 " Colors "
 set t_Co=256
 set background=dark
-colorscheme genericdc
+"colorscheme genericdc
 "colorscheme BusyBee
 
 hi ColorColumn ctermbg=256

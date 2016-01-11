@@ -12,6 +12,12 @@ xinput set-prop /dev/wsmouse "WS Pointer Wheel Emulation Axes" 6 7 4 5
 
 # Use GTK widgets in place of QT
 export QT_STYLE_OVERRIDE=GTK+
+export GTK_IM_MODULE=xim
+
+# UTF-8
+export LC_CTYPE=fr_FR.UTF-8
+export LESSCHARSET=utf-8
+#setxkbmap -option compose:ralt
 
 # merge in defaults and keymaps
 if [ -f $sysresources ]; then
@@ -37,9 +43,6 @@ if [ -d /etc/X11/xinit/xinitrc.d ] ; then
  done
  unset f
 fi
-
-# keyboard shortcuts for bspwm
-#sxhkd &
 
 # screen temperature adjustment
 # adjust the coordinates for your location.  in case you were thinknig of going to the coordinates listed

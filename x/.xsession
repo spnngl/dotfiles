@@ -1,4 +1,10 @@
 #!/bin/zsh
+######################################
+# Note à moi-même #
+#
+# Pour ls coloré installer 'colorls'
+#
+# ###################################
 
 userresources=$HOME/.Xresources
 usermodmap=$HOME/.Xmodmap
@@ -8,6 +14,7 @@ sysmodmap=/etc/X11/xinit/.Xmodmap
 # Trackpoint settings
 xinput set-prop /dev/wsmouse "WS Pointer Wheel Emulation" 1
 xinput set-prop /dev/wsmouse "WS Pointer Wheel Emulation Button" 2
+xinput set-prop /dev/wsmouse "WS Pointer Wheel Emulation Timeout" 200
 xinput set-prop /dev/wsmouse "WS Pointer Wheel Emulation Axes" 6 7 4 5
 
 # Use GTK widgets in place of QT

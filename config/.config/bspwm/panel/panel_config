@@ -4,7 +4,7 @@ MSGFILE=$HOME/.weechat/highlights.txt
 NEWMAILDIR=$HOME/mail/gmail/gmail/new
 
 # Hardware
-WIFI_INTERFACE="wlp2s2"
+WIFI_INTERFACE="wlp3s0"
 POWERSUPPLY="/sys/class/power_supply/AC"
 BATTERY="/sys/class/power_supply/BAT0"
 

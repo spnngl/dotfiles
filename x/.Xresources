@@ -16,7 +16,7 @@ URxvt*font: xft:Source\ Code\ Pro:size=8:antialias=true:hinting=true,xft:Liberat
 URxvt.letterSpace: 0
 
 ! terminal padding
-URxvt.internalBorder: 10
+URxvt.internalBorder: 7
 
 ! make otf / ttf fonts look pretty.  does not matter if you are using a bitmap font.
 Xft.autohint: 0

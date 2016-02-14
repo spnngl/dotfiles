@@ -22,7 +22,6 @@ set tabstop=4 shiftwidth=4 expandtab
 " Colors "
 set t_Co=256
 set background=dark
-"colorscheme genericdc
-"colorscheme BusyBee
+colorscheme gruvbox
 
 hi ColorColumn ctermbg=256

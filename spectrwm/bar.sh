@@ -10,7 +10,7 @@ print_date() {
 }
 
 print_mem() {
-	MEM=$($(which top) -bn | grep Free: | cut -d " " -f6)
+	MEM=$(free -h | grep Mem: | awk '{print $7}')
 	echo -n " | Mem: $MEM "
 }
 
@@ -79,25 +79,25 @@ print_cpuspeed() {
 	echo -n " | CPU: $CPU_SPEED MHz  "
 }
 
-while :; do
-	# instead of sleeping, use iostat as the update timer.
-	# cache the output of apm(8), no need to call that every second.
-	$(which iostat) -C -c 3600 |&	# wish infinity was an option
-	PID="$!"
-	APM_DATA=""
-	I=0
-	trap "kill $PID; exit" TERM
-	while read -p; do
-		if [ $(( ${I} % 1 )) -eq 0 ]; then
-			APM_DATA=$($(which apm) -alb)
-		fi
-		if [ $I -gt 2 ]; then
-			print_date
-			print_mem
-			print_cpuspeed
-			print_apm $APM_DATA
-			echo ""
-		fi
-		I=$(( ${I} + 1 ));
-	done
-done
+#while :; do
+#	# instead of sleeping, use iostat as the update timer.
+#	# cache the output of apm(8), no need to call that every second.
+#	$(which iostat) -C -c 3600 |&	# wish infinity was an option
+#	PID="$!"
+#	APM_DATA=""
+#	I=0
+#	trap "kill $PID; exit" TERM
+#	while read -p; do
+#		if [ $(( ${I} % 1 )) -eq 0 ]; then
+#			APM_DATA=$($(which apm) -alb)
+#		fi
+#		if [ $I -gt 2 ]; then
+#			print_date
+#			print_mem
+#			#print_cpuspeed
+#			#print_apm $APM_DATA
+#			echo ""
+#		fi
+#		I=$(( ${I} + 1 ));
+#	done
+#done

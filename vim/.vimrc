@@ -22,6 +22,6 @@ set tabstop=4 shiftwidth=4 expandtab
 " Colors "
 set t_Co=256
 set background=dark
-colorscheme gruvbox
+colorscheme void
 
 hi ColorColumn ctermbg=256

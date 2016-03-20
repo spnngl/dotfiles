@@ -49,6 +49,7 @@ au BufRead, BufNewFile *.py, *.pyw, *.c, *.cpp, *.h match BadWhitespace /\s\+$/
 set t_Co=256
 set background=dark
 colorscheme genericdc
+"colorscheme gruvbox
 
 hi ColorColumn ctermbg=256
 syntax on

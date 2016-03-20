@@ -1,17 +1,6 @@
 #!/bin/sh
 
-FONT="Source Code Pro:pixelsize=14"
-ICONFONT="FontAwesome:pixelsize=16"
-RES=" 1366x20+0+0"
-CONNECTION="wlp3s0"
-
-#CHRG='\uf1e6'
-#DNCHRG='\uf1e6'
-#BATFULL='\uf240'
-#BAT75='\uf241'
-#BAT50='\uf242'
-#BAT25='\uf243'
-#BATMT='\uf244'
+# my simple bar
 
 function battery() {
     LVL=$(acpi | awk '{print $4}')
@@ -25,8 +14,10 @@ function curtime() {
 }
 
 function ipv4() {
-    echo -n "$(ip addr show $CONNECTION | grep inet | \
-        awk '{print $2}' | head -n1 | sed 's|/24||') |"
+    CONNECTION="wlp3s0"
+    ESSID=$(iwconfig $CONNECTION | grep ESSID: | awk '{print $4}')
+    IP=$(ip addr show $CONNECTION | grep inet | awk '{print $2}' | head -n1 | sed 's|/24||')
+    echo -n "$ESSID | $IP |"
 }
 
 while :; do

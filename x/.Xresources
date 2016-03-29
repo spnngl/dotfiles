@@ -11,6 +11,11 @@ URxvt.iso14755_52: false
 ! as login shell
 ! URxvt*loginShell: true
 
+! Copy & past
+URxvt.perl-ext-common: default,matcher
+URxvt.url-launcher: /usr/bin/firefox
+URxvt.matcher.button: 1
+
 ! font
 URxvt*font: xft:Inconsolata-Regular:size=10:antialias=true:hinting=true,xft:Liberation Mono:antialias=true:hinting=true
 !URxvt.letterSpace: -3

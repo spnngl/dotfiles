@@ -15,20 +15,20 @@ set undolevels=1000
 filetype off
 
 " Vundle "
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
+"set rtp+=~/.vim/bundle/Vundle.vim
+"call vundle#begin()
 
 " Vundle manage itself "
-Plugin 'gmarik/Vundle.vim'
+"Plugin 'gmarik/Vundle.vim'
 
 " Other(s) plugins "
-Plugin 'scrooloose/nerdtree'
-let NERDTreeIgnore=['\.pyc$', '\~$'] "ignore files in NERDTree"
-map <C-n> :NERDTreeToggle<CR>
-Plugin 'kien/ctrlp.vim'
+"Plugin 'scrooloose/nerdtree'
+"let NERDTreeIgnore=['\.pyc$', '\~$'] "ignore files in NERDTree"
+"map <C-n> :NERDTreeToggle<CR>
+"Plugin 'kien/ctrlp.vim'
 
-call vundle#end()
-filetype plugin on
+"call vundle#end()
+"filetype plugin on
 
 " Indent options "
 set autoindent

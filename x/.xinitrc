@@ -56,8 +56,8 @@ fi
 # redshift -r -l 35.22:-80.84 &
 
 # desktop wallpaper
-#sh ~/.fehbg &
-xsetroot -solid '#491021'
+sh ~/.fehbg &
+#xsetroot -solid '#491021'
 
 # sound buttons
 exec xbindkeys &

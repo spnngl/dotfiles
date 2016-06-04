@@ -1,4 +1,4 @@
-#!/bin/zsh
+#!/bin/ksh
 ######################################
 # Note à moi-même #
 #
@@ -25,6 +25,7 @@ export GTK_IM_MODULE=xim
 export LC_CTYPE=fr_FR.UTF-8
 export LESSCHARSET=utf-8
 #setxkbmap -option compose:ralt
+export ENV=$HOME/.kshrc
 
 # merge in defaults and keymaps
 if [ -f $sysresources ]; then
@@ -51,21 +52,19 @@ if [ -d /etc/X11/xinit/xinitrc.d ] ; then
  unset f
 fi
 
-# screen temperature adjustment
-# adjust the coordinates for your location.  in case you were thinknig of going to the coordinates listed
-# below, my she-devil of an ex flatmate lives there, and it is probably best to avoid Charlotte altogether.
-# redshift -r -l 35.22:-80.84 &
-
 # desktop wallpaper
-sh ~/.fehbg &
+sh $HOME/bin/.fehbg &
+#xsetroot -solid '#491021'
 
 # hide x11 cursor
 #unclutter &
 
 #compton -b &
 
+xautolock -time 5 -locker slock &
+
 # urxvt daemon
 urxvtd -q -f -o &
 
 # window manager
-exec spectrwm
+exec /usr/local/bin/spectrwm

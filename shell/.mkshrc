@@ -1,11 +1,17 @@
-bind '^L=clear-screen'
+bind -m '^L'=clear'^J'
 
 export GOPATH="$HOME/src/go"
-export PATH=$PATH:/sbin/:/usr/sbin/:$GOPATH/bin/
+export PATH=$PATH:/sbin/:/opt/local/bin/:/usr/sbin/:$GOPATH/bin/
 export EDITOR=/usr/bin/vim
+export TOP='-s 1'
+export PAGER=less
+export ENV=$HOME/.mkshrc
+
 export HISTFILE=$HOME/.mksh.hist
+HISTSIZE=3000
 
 alias ..='cd ..'
 alias ...='cd ../..'
-alias ls='ls --color'
+alias ls='ls -G'
 alias ll='ls -lh'
+alias g='git'

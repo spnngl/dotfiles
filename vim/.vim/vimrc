@@ -1,5 +1,8 @@
 " Import bepo keyboard settings "
-source ~/.vimrc.bepo
+source $HOME/.vim/vimrc.bepo
+
+" Auto-complete C "
+set path=/usr/include,/usr/local/include
 
 " Divers "
 set number
@@ -10,7 +13,7 @@ set incsearch
 set hlsearch
 set encoding=utf-8
 
-set shell=/bin/bash "/usr/local/bin/zsh
+set shell=/bin/ksh
 set undolevels=1000
 filetype off
 

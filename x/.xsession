@@ -26,6 +26,7 @@ export LC_CTYPE=fr_FR.UTF-8
 export LESSCHARSET=utf-8
 #setxkbmap -option compose:ralt
 export ENV=$HOME/.kshrc
+#export XDG_CONFIG_HOME=$HOME/.config/
 
 # merge in defaults and keymaps
 if [ -f $sysresources ]; then

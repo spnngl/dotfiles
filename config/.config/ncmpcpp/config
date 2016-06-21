@@ -1,4 +1,4 @@
-visualizer_fifo_path                  = "/tmp/mpd.fifo"
+visualizer_fifo_path                  = "/home/atbd/.config/mpd/mpd.fifo"
 visualizer_output_name                = "mpdfifo"
 visualizer_sync_interval              = "30"
 visualizer_in_stereo                  = "yes"
@@ -6,8 +6,8 @@ visualizer_type                       = "wave" (spectrum/wave)
 #visualizer_type                       = "spectrum" (spectrum/wave)
 visualizer_look                       = "+|"
 
-mpd_music_dir = "/media/music/library"
-mpd_port      = 6600
+mpd_music_dir                         = "/home/atbd/usr/music/"
+mpd_port                              = 6600
 
 playlist_disable_highlight_delay      = "3"
 message_delay_time                    = "8"

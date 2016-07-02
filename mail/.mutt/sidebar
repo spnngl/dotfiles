@@ -1,0 +1,7 @@
+#
+# ~/.mutt.d/sidebar
+#
+
+set sidebar_visible=yes
+set sidebar_width=21
+set sidebar_sort=yes

@@ -1,0 +1,57 @@
+# ┏┳┓╻ ╻╺┳╸╺┳╸┏━┓┏━╸
+# ┃┃┃┃ ┃ ┃  ┃ ┣┳┛┃  
+# ╹ ╹┗━┛ ╹  ╹ ╹┗╸┗━╸ 
+
+# accounts (do not upload)
+macro index <F5> '<sync-mailbox><enter-command>source $HOME/.mutt/accounts/d1<enter><change-folder>!<enter>'
+macro index <F6> '<sync-mailbox><enter-command>source $HOME/.mutt/accounts/a2<enter><change-folder>!<enter>'
+macro index <F7> '<sync-mailbox><enter-command>source $HOME/.mutt/accounts/n7<enter><change-folder>!<enter>'
+
+# default
+source $HOME/.mutt/accounts/d1
+
+# hooks
+folder-hook 'd1' 'source $HOME/.mutt/accounts/d1'
+folder-hook 'a2' 'source $HOME/.mutt/accounts/a2'
+folder-hook 'n7' 'source $HOME/.mutt/accounts/n7'
+
+# others
+source $HOME/.mutt/sidebar
+source $HOME/.mutt/colors
+
+#gpg settings
+source $HOME/.mutt/gpg.rc
+
+set pgp_use_gpg_agent       = yes
+set pgp_sign_as             = BBB1FE56
+set pgp_timeout             = 3600
+set crypt_verify_sig        = yes
+set crypt_autosign          = yes
+#set crypt_autoencrypt       =yes
+set crypt_replyencrypt      = yes
+#set crypt_replysignencrypted= yes
+
+### ~/.muttrc ###
+set editor                  = "vim -c 'set syntax=mail ft=mail enc=utf-8'"
+set pager                   = /usr/bin/less
+set send_charset            = "utf-8"
+set sort                    = threads
+
+# imap
+set mail_check              = 60 #seconds
+set imap_keepalive          = 300 #seconds
+
+# cache
+#set header_cache            = "~/var/mail"
+#set message_cachedir        = "~/var/mail"
+#set certificate_file        = "~/var/mail"
+
+# address book
+# source ~/.aliases
+
+# Folder settings (local use)
+#set spoolfile               = ~/var/mail/inbox
+#set folder                  = ~/var/mail
+#set postponed               = ~/var/mail/brouillons
+#set record                  = ~/var/mail/sent
+

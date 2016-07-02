@@ -15,6 +15,7 @@ export LC_ALL=fr_FR.UTF-8
 export TOP='-s 1'
 export PAGER=less
 export ENV=$HOME/.kshrc
+export W3MIMGDISPLAY_PATH=/usr/local/libexec/w3m/w3mimgdisplay
 
 alias ..='cd ..'
 alias ...='cd ../..'

@@ -36,6 +36,8 @@ set editor                  = "vim -c 'set syntax=mail ft=mail enc=utf-8'"
 set pager                   = /usr/bin/less
 set send_charset            = "utf-8"
 set sort                    = threads
+set mailcap_path            = $HOME/.mutt/mailcap
+auto_view text/html
 
 # imap
 set mail_check              = 60 #seconds

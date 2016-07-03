@@ -4,6 +4,7 @@
 *.so
 cache*
 history*
+bundle
 d1
 a2
 n7

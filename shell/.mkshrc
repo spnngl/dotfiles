@@ -1,11 +1,14 @@
 bind -m '^L'=clear'^J'
 
+export PS1="> "
+
 export GOPATH="$HOME/src/go"
 export PATH=$PATH:/sbin/:/opt/local/bin/:/usr/sbin/:$GOPATH/bin/
 export EDITOR=/usr/bin/vim
 export TOP='-s 1'
 export PAGER=less
 export ENV=$HOME/.mkshrc
+export VIMINIT='source $HOME/.vim/vimrc'
 
 export HISTFILE=$HOME/.mksh.hist
 HISTSIZE=3000

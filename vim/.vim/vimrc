@@ -13,7 +13,7 @@ set incsearch
 set hlsearch
 set encoding=utf-8
 
-set shell=/bin/ksh
+set shell=/usr/local/bin/mksh
 set undolevels=1000
 filetype off
 

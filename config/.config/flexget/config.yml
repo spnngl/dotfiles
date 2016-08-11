@@ -48,7 +48,7 @@ templates:
 
 # Definition des taches : flexget execute --task XX    
 tasks:
-  series:
+  Series:
     priority: 10
     template:
       - series_global

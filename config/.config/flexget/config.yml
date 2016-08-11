@@ -1,0 +1,72 @@
+templates:
+#   global: 
+#   # REJECT ANY TORRENT THAT CONTAINS ONE OF THESE 
+#   # WORDS IN BETWEEN A SPACE OR A DOT 
+#     regexp: 
+#       reject: 
+#         - (?i)[ .]cam[ .] 
+#         - (?i)[ .]bdscr[ .] 
+#         - (?i)[ .]dvdscr[ .] 
+#         - (?i)[ .]preair[ .] 
+#         - (?i)[ .]ppvrip[ .] 
+#         - (?i)[ .]r5[ .] 
+#         - (?i)[ .]tc[ .] 
+#         - (?i)[ .]ts[ .] 
+#         - (?i)[ .]ecc[ .] 
+#         - (?i)[ .]avc[ .] 
+#         - (?i)[ .]qebs[ .]
+
+  series_global:
+    download: /media/torrent/todo
+    inputs:
+      #- rss: { url: 'http://ezrss.it/feed/' } # EZRSS
+      - rss: { url: 'https://eztv.ag/ezrss.xml' } #ezrss
+      - rss: { url: 'https://yts.ag/rss/0/720p/all/0' } # YIFY
+      - rss: { url: 'http://showrss.info/show/schedule/273.rss' } # mr robot
+      - rss: { url: 'http://showrss.info/show/549.rss' } # Outcast
+    exists_series:
+      - '/media/torrent/done/'
+
+  series_suivies:
+    include: [ series.yml ]
+
+  # Paramètres pour premiers épisodes de nouvelles séries
+#  series_premieres:
+#    thetvdb_lookup: yes
+#    require_field: tvdb_genres
+#    regexp:
+#      reject:
+#        - animation: {from: tvdb_genres}
+#        - documentary: {from: tvdb_genres}
+#        - talk show: {from: tvdb_genres}
+#        - game show: {from: tvdb_genres}
+#        - reality: {from: tvdb_genres}
+#        - children: {from: tvdb_genres}
+#        - food: {from: tvdb_genres}
+#        - home and garden: {from: tvdb_genres}
+#    series_premiere: no
+
+# Definition des taches : flexget execute --task XX    
+tasks:
+  series:
+    priority: 10
+    template:
+      - series_global
+      - series_suivies
+#  Series_Premieres:
+#    priority: 40
+#    template:
+#      - series_global
+#      - series_premieres
+#    # We use the manual plugin so that this task only runs when explicitly called
+#    manual: yes
+#  # Pour initier la base de données avec les series déjà existantes
+#  # flexget execute --tasks Series_Init --disable-advancement --learn
+#  Series_Init:
+#    find:
+#      regexp: .*(avi|mkv|mp4)$
+#      path: /media/torrent/done/
+#      recursive: yes
+#    template: series_global
+#    # We use the manual plugin so that this task only runs when explicitly called
+#    manual: yes

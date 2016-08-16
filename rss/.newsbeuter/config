@@ -1,5 +1,7 @@
 # OSX
 browser open
+# Not OSX
+#browser firefox
 
 #Binding pour BÉPO
 unbind-key e

@@ -2,6 +2,9 @@
 *.a
 *.py{c,o}
 *.so
+*.log
+*.sqlite
+.config-lock
 cache*
 history*
 bundle

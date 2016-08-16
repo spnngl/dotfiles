@@ -1,25 +1,7 @@
 templates:
-#   global: 
-#   # REJECT ANY TORRENT THAT CONTAINS ONE OF THESE 
-#   # WORDS IN BETWEEN A SPACE OR A DOT 
-#     regexp: 
-#       reject: 
-#         - (?i)[ .]cam[ .] 
-#         - (?i)[ .]bdscr[ .] 
-#         - (?i)[ .]dvdscr[ .] 
-#         - (?i)[ .]preair[ .] 
-#         - (?i)[ .]ppvrip[ .] 
-#         - (?i)[ .]r5[ .] 
-#         - (?i)[ .]tc[ .] 
-#         - (?i)[ .]ts[ .] 
-#         - (?i)[ .]ecc[ .] 
-#         - (?i)[ .]avc[ .] 
-#         - (?i)[ .]qebs[ .]
-
   series_global:
     download: /media/torrent/todo
     inputs:
-      #- rss: { url: 'http://ezrss.it/feed/' } # EZRSS
       - rss: { url: 'https://eztv.ag/ezrss.xml' } #ezrss
       - rss: { url: 'https://yts.ag/rss/0/720p/all/0' } # YIFY
       - rss: { url: 'http://showrss.info/show/schedule/273.rss' } # mr robot
@@ -53,6 +35,27 @@ tasks:
     template:
       - series_global
       - series_suivies
+
+  Subtitles:
+    filesystem:
+      path:
+        - /media/torrent/done/
+      regexp: '.*\.(avi|mkv|mp4)$'
+      recursive: yes
+    accept_all: yes
+    subliminal:
+      languages:
+        - eng
+      #alternatives:
+      exact_match: yes
+      providers: [addic7ed, opensubtitles]
+      single: no
+
+schedules:
+  - tasks: [Subtitles]
+    schedule:
+      day: '*/1'
+
 #  Series_Premieres:
 #    priority: 40
 #    template:

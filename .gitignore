@@ -4,6 +4,7 @@
 *.so
 *.log
 *.sqlite
+.config-lock
 cache*
 history*
 bundle

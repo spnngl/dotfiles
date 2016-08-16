@@ -23,11 +23,13 @@ series:
     - Mr Robot
     - Outcast
     - Supernatural
-    - Game of thrones
+    - Game of Thrones
     - Youre the Worst
     - Black Mirror
     #- Sherlock
-    #- The Knick
+    #- Stranger Things
+    - The Knick
+      tracking: backfill
   # Autres séries pour lesquelles je me contente d'une résolution plus basse
   normal:
     - Rick and Morty

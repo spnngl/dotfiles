@@ -5,13 +5,24 @@ source $HOME/.vim/vimrc.bepo
 set path=/usr/include,/usr/local/include,/usr/local/lib
 
 " Divers "
-set number
 set nocompatible
+set modelines=0
+set number
 set cursorline
 set noerrorbells
 set incsearch
 set hlsearch
 set encoding=utf-8
+
+" maintain undo history between sessions
+set undofile
+set undodir=~/.vim/undo
+set noswapfile
+
+" case insensitive search
+set ignorecase
+set smartcase
+set infercase
 
 set shell=/usr/local/bin/mksh
 set undolevels=1000
@@ -42,6 +53,12 @@ set autoindent
 set colorcolumn=90
 set tabstop=4 shiftwidth=4 expandtab
 
+" remove trailing whitespaces and ^M chars
+autocmd FileType c,cpp,java,php,js,python,twig,xml,yml autocmd BufWritePre <buffer> :call setline(1,map(getline(1,"$"),'substitute(v:val,"\\s\\+$","","")'))
+
+" Bad whitespaces "
+"au BufRead, BufNewFile *.py, *.pyw, *.c, *.cpp, *.h match BadWhitespace /\s\+$/
+
 " Enable folding "
 set foldmethod=indent
 set foldlevel=99
@@ -54,9 +71,6 @@ au BufNewFile, BufRead *.py
     \ set textwidth=79
     \ set fileformat=unix
 
-" Bad whitespaces "
-au BufRead, BufNewFile *.py, *.pyw, *.c, *.cpp, *.h match BadWhitespace /\s\+$/
-
 " Colors "
 set t_Co=256
 set background=dark
@@ -64,3 +78,11 @@ colorscheme fahrenheit
 
 hi ColorColumn ctermbg=256
 syntax on
+
+
+" Commands
+" remove trailing white space
+command Nows :%s/\s\+$//
+
+" remove blank lines
+command Nobl :g/^\s*$/d

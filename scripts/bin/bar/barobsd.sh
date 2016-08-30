@@ -56,7 +56,7 @@ print_apm() {
                 esac;
                 case $BAT_STATUS in
                 4)
-                    BAT_STRING="(sin bateria) | "
+                    BAT_STRING="(no battery) | "
                     ;;
                 [0-3])
                     BAT_STRING="bat ${BAT_LEVEL}% | "

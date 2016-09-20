@@ -1,4 +1,15 @@
-browser firefox
+# OSX
+browser open
+# Not OSX
+#browser firefox
+
+
+# couleurs et style
+color background default default
+color listnormal default default
+color listfocus  blue   default bold
+color info       white   blue
+color article    default default
 
 #Binding pour BÉPO
 unbind-key e

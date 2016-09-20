@@ -2,18 +2,18 @@ series:
   settings:
     best:
       upgrade: yes
-      quality: 720p hdtv+
-      target: 720p
+      #quality: 720p hdtv+
+      target: "720p" # hdtv+"
       timeframe: 6 hours
       propers: 12 hours
     normal:
-      quality: "<=720p hdtv+"
-      target: "<720p"
+      #quality: "<=720p hdtv+"
+      target: "720p" #"720p+"
       timeframe: 6 hours
       propers: 12 hours
     webrip:
-       quality: "<=720p webrip|webdl"
-       target: "<720p"
+       #quality: "<=720p webrip|webdl"
+       target: "720p webrip|webdl"
        timeframe: 6 hours
        propers: 12 hours
 
@@ -24,22 +24,21 @@ series:
     - Outcast
     - Supernatural
     - Game of Thrones
-    - Youre the Worst
+    - You're The Worst
     - Black Mirror
     #- Sherlock
     #- Stranger Things
     - The Knick
-      tracking: backfill
   # Autres séries pour lesquelles je me contente d'une résolution plus basse
   normal:
     - Rick and Morty
     - Star Wars Rebels
     #- Doctor Who (2005)
     #- Gravity Falls
-    #- Community
-    #- Scrubs
+    - Community
+    - Scrubs
     #- South Park
-    #- Silicon Valley
+    - Silicon Valley
     - The Big Bang Theory
     - American dad
     - Modern Family

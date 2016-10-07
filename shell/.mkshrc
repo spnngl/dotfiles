@@ -1,11 +1,15 @@
 bind -m '^L'=clear'^J'
 
-export PS1="> "
+PS1='$(date -u +%H:%M:%S)|' 
+PS1+="\${PWD##*/} \$ "
+export PS1
+
+PATH=$PATH:/sbin/:/opt/local/bin/:/usr/sbin/:$GOPATH/bin/
+PATH+=:$HOME/Library/Haskell/bin/
+PATH+=:$HOME/bin/
+export PATH
 
 export GOPATH="$HOME/src/go"
-export PATH=$PATH:/sbin/:/opt/local/bin/:/usr/sbin/:$GOPATH/bin/
-export PATH=$PATH:$HOME/Library/Haskell/bin/
-export PATH=$PATH:$HOME/bin/
 export EDITOR=/usr/bin/vim
 export TOP='-s 1'
 export PAGER=less
@@ -15,8 +19,10 @@ export VIMINIT='source $HOME/.vim/vimrc'
 export HISTFILE=$HOME/.mksh.hist
 HISTSIZE=3000
 
+alias ipython='ipython --pylab --no-banner --colors=Linux'
 alias ..='cd ..'
 alias ...='cd ../..'
+alias ....='cd ../../..'
 alias ls='ls -G'
 alias ll='ls -lh'
 alias g='git'

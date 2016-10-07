@@ -8,7 +8,7 @@ macro index <F6> '<sync-mailbox><enter-command>source $HOME/.mutt/accounts/a2<en
 macro index <F7> '<sync-mailbox><enter-command>source $HOME/.mutt/accounts/n7<enter><change-folder>!<enter>'
 
 # default
-source $HOME/.mutt/accounts/d1
+source $HOME/.mutt/accounts/a2
 
 # hooks
 folder-hook 'd1' 'source $HOME/.mutt/accounts/d1'

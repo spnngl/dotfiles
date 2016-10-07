@@ -55,17 +55,20 @@ fi
 
 # desktop wallpaper
 #sh $HOME/bin/.fehbg &
-xsetroot -solid '#491021'
+#xsetroot -solid '#491021'
 
 # hide x11 cursor
 #unclutter &
 
 #compton -b &
 
-xautolock -time 5 -locker slock &
+#xautolock -time 5 -locker slock &
 
 # urxvt daemon
+export TERM=/usr/local/bin/urxvt
+export TERMINAL=/usr/local/bin/urxvt
 urxvtd -q -f -o &
 
 # window manager
-exec /usr/local/bin/spectrwm
+#exec /usr/local/bin/spectrwm
+exec herbstluftwm --locked

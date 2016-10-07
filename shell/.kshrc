@@ -7,7 +7,7 @@ bind -m '^L'=clear'^J'
 
 export GOPATH="$HOME/src/go"
 export PATH=$PATH:/sbin/:/usr/sbin/:$GOPATH/bin/
-export EDITOR=/usr/bin/vim
+export EDITOR=/usr/local/bin/vim
 #export PS1="\u@\h:\w\$ "
 export LC_ALL=fr_FR.UTF-8
 #export LC_CTYPE=fr_FR.UTF-8

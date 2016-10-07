@@ -1,10 +1,23 @@
 templates:
   series_global:
     download: /media/torrent/todo
+    magnets: no
     inputs:
       - rss: { url: 'https://eztv.ag/ezrss.xml' } #ezrss
       - rss: { url: 'https://yts.ag/rss/0/720p/all/0' } # YIFY
-      - rss: { url: 'http://showrss.info/show/schedule/273.rss' } # mr robot
+      - rss: { url: 'http://showrss.info/show/44.rss' } # Rick & morty
+      - rss: { url: 'http://showrss.info/show/43.rss' } # Simpsons
+      - rss: { url: 'http://showrss.info/show/75.rss' } # Modern Family
+      - rss: { url: 'http://showrss.info/show/144.rss' } # Supernatural
+      - rss: { url: 'http://showrss.info/show/262.rss' } # GOT
+      - rss: { url: 'http://showrss.info/show/271.rss' } # American Dad 
+      - rss: { url: 'http://showrss.info/show/129.rss' } # Star Wars Rebels
+      - rss: { url: 'http://showrss.info/show/116.rss' } # American Horror Story
+      - rss: { url: 'http://showrss.info/show/275.rss' } # silicon valley
+      - rss: { url: 'http://showrss.info/show/274.rss' } # House of Cards
+      - rss: { url: 'http://showrss.info/show/273.rss' } # mr robot
+      - rss: { url: 'http://showrss.info/show/297.rss' } # black mirror
+      - rss: { url: 'http://showrss.info/show/74.rss' } # you're the worst
       - rss: { url: 'http://showrss.info/show/549.rss' } # Outcast
     exists_series:
       - '/media/torrent/done/'
@@ -39,7 +52,7 @@ tasks:
   Subtitles:
     filesystem:
       path:
-        - /media/torrent/done/
+        - /media/torrent/subs
       regexp: '.*\.(avi|mkv|mp4)$'
       recursive: yes
     accept_all: yes
@@ -55,6 +68,9 @@ schedules:
   - tasks: [Subtitles]
     schedule:
       day: '*/1'
+  - tasks: [Series]
+    schedule:
+      day: '*/2'
 
 #  Series_Premieres:
 #    priority: 40

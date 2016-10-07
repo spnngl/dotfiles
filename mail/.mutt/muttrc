@@ -16,8 +16,9 @@ folder-hook 'a2' 'source $HOME/.mutt/accounts/a2'
 folder-hook 'n7' 'source $HOME/.mutt/accounts/n7'
 
 # others
-source $HOME/.mutt/sidebar
-source $HOME/.mutt/colors
+#source $HOME/.mutt/sidebar
+source $HOME/.mutt/colors/colors.old #vombatidae.mutt
+source $HOME/.mutt/bindings
 
 #gpg settings
 source $HOME/.mutt/gpg.rc
@@ -33,11 +34,26 @@ set crypt_replyencrypt      = yes
 
 ### ~/.muttrc ###
 set editor                  = "vim -c 'set syntax=mail ft=mail enc=utf-8'"
-set pager                   = /usr/bin/less
-set send_charset            = "utf-8"
+#set pager                   = /usr/bin/less
+set send_charset            = 'utf-8'
 set sort                    = threads
+set sort_aux                = reverse-last-date-received
+set date_format             = "%d/%m"
+set index_format            = "%2C | %Z [%d] %-30.30F (%-4.4c) %s"
 set mailcap_path            = $HOME/.mutt/mailcap
 auto_view text/html
+#auto_view application/pdf
+
+# Pager View Options
+#set pager_index_lines = 10 # number of index lines to show
+#set pager_context = 3      # number of context lines to show
+#set pager_stop             # don't go to next message automatically
+#set menu_scroll            # scroll in menus
+#set tilde                  # show tildes like in vim
+#unset markers              # no ugly plus signs
+
+#set quote_regexp = "^( {0,4}[>|:#%]| {0,4}[a-z0-9]+[>|]+)+"
+#alternative_order text/plain text/enriched text/html
 
 # imap
 set mail_check              = 60 #seconds

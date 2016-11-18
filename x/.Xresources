@@ -12,7 +12,7 @@ URxvt.iso14755_52: false
 ! URxvt*loginShell: true
 
 ! font
-URxvt*font: xft:Inconsolata-Regular:size=11:antialias=true:hinting=true,xft:Liberation Mono:antialias=true:hinting=true
+URxvt*font: xft:Inconsolata-Regular:size=12:antialias=true:hinting=true,xft:Liberation Mono:antialias=true:hinting=true
 !URxvt.letterSpace: -3
 
 ! terminal padding

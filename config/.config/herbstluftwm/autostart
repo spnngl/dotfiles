@@ -7,8 +7,7 @@ hc() {
 }
 
 hc emit_hook reload
-
-xsetroot -solid '#222222'
+#xsetroot -solid '#222222'
 
 # remove all existing keybindings
 hc keyunbind --all
@@ -22,7 +21,7 @@ hc keybind $Mod-Shift-q quit
 hc keybind $Mod-Shift-k reload
 hc keybind $Mod-x close
 hc keybind $Mod-Return spawn ${TERMINAL:-xterm} # use your $TERMINAL with xterm as fallback
-hc keybind $Mod-d spawn dmenu_run_hlwm
+hc keybind $Mod-d spawn dmenu_run
 
 # basic movement
 # focusing clients
@@ -123,9 +122,9 @@ hc set frame_gap 4
 hc attr theme.active.color '#e0301e'
 hc attr theme.normal.color '#454545'
 hc attr theme.urgent.color red
-hc attr theme.inner_width 1
+hc attr theme.inner_width 0
 hc attr theme.inner_color black
-hc attr theme.border_width 2
+hc attr theme.border_width 1
 hc attr theme.floating.border_width 3
 hc attr theme.floating.outer_width 1
 hc attr theme.floating.outer_color black
@@ -158,7 +157,7 @@ herbstclient set tree_style '╾│ ├└╼─┐'
 # do multi monitor setup here, e.g.:
 # hc set_monitors 1280x1024+0+0 1280x1024+1280+0
 # or simply:
-# hc detect_monitors
+hc detect_monitors
 
 # find the panel
 panel=~/.config/herbstluftwm/panel.sh

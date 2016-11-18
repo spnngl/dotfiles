@@ -4,6 +4,8 @@
 *.so
 *.log
 *.sqlite
+passwd
+undo
 .config-lock
 cache*
 history*

@@ -24,28 +24,28 @@ set ignorecase
 set smartcase
 set infercase
 
-set shell=/usr/local/bin/mksh
+set shell=/bin/bash
 set undolevels=1000
 filetype off
 
-" Vundle "
-set rtp+=$HOME/.vim/bundle/Vundle.vim
-call vundle#begin()
-
-" Vundle manage itself "
-Plugin 'gmarik/Vundle.vim'
-
-" Other(s) plugins "
-Plugin 'scrooloose/nerdtree'
-let NERDTreeIgnore=['\.pyc$', '\~$'] 
-map <C-n> :NERDTreeToggle<CR>
-Plugin 'kien/ctrlp.vim'
-Plugin 'tpope/vim-fugitive'
-Plugin 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
-set laststatus=2
-set noshowmode
-
-call vundle#end()
+" " Vundle "
+" set rtp+=$HOME/.vim/bundle/Vundle.vim
+" call vundle#begin()
+" 
+" " Vundle manage itself "
+" Plugin 'gmarik/Vundle.vim'
+" 
+" " Other(s) plugins "
+" Plugin 'scrooloose/nerdtree'
+" let NERDTreeIgnore=['\.pyc$', '\~$'] 
+" map <C-n> :NERDTreeToggle<CR>
+" Plugin 'kien/ctrlp.vim'
+" Plugin 'tpope/vim-fugitive'
+" Plugin 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
+" set laststatus=2
+" set noshowmode
+" 
+" call vundle#end()
 filetype plugin indent on
 
 " Indent options "
@@ -70,6 +70,9 @@ au BufNewFile, BufRead *.py
     \ set softtabstop=4
     \ set textwidth=79
     \ set fileformat=unix
+
+" For latex
+au BufNewFile,BufRead *.cls set filetype=tex
 
 " Colors "
 set t_Co=256

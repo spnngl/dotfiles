@@ -1,6 +1,6 @@
 bind -m '^L'=clear'^J'
 
-PS1='$(date -u +%H:%M:%S)|' 
+PS1='$(date +%H:%M:%S)|' 
 PS1+="\${PWD##*/} \$ "
 export PS1
 

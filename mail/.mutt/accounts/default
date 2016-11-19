@@ -1,18 +1,18 @@
+# vim: filetype=muttrc
+
 set folder                  = imaps://imap.gmail.com:993/
 set spoolfile               = +INBOX
 mailboxes                   = +INBOX
-set postponed               = +[Gmail]/Drafts #Brouillons
+set postponed               = +[Gmail]/Drafts
 set record                  = +Envoyés
 #set trash                   = +[Gmail]/Trash
-
-# smtp
-set smtp_url                = "smtp://nobody@smtp.gmail.com:587/"
-set smtp_pass               = "nop"
 
 # Login & passwd
 #set imap_authentification   = "login"
 set imap_user               = "nobody@gmail.com"
-set imap_pass               = "nop"
+
+# smtp
+set smtp_url                = "smtps://${imap_user}@smtp.gmail.com:587/"
 
 # Me, myself & I
 set realname                = "nobody"

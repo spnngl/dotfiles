@@ -1,3 +1,5 @@
+# vim: filetype=kshrc
+
 bind -m '^L'=clear'^J'
 
 PS1='$(date +%H:%M:%S)|' 
@@ -13,16 +15,16 @@ export GOPATH="$HOME/src/go"
 export EDITOR=/usr/bin/vim
 export TOP='-s 1'
 export PAGER=less
-export ENV=$HOME/.mkshrc
+#export ENV=$HOME/.mkshrc
 export VIMINIT='source $HOME/.vim/vimrc'
 
 export HISTFILE=$HOME/.mksh.hist
-HISTSIZE=3000
+export HISTSIZE=3000
 
-alias ipython='ipython --pylab --no-banner --colors=Linux'
+alias ipython='ipython --pylab --no-banner'
 alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
-alias ls='ls -G'
+alias ls='ls --color'
 alias ll='ls -lh'
 alias g='git'

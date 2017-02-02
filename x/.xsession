@@ -19,7 +19,7 @@ export GTK_IM_MODULE=xim
 export LC_CTYPE=fr_FR.UTF-8
 export LESSCHARSET=utf-8
 #setxkbmap -option compose:ralt
-export ENV=$HOME/.bashrc
+#export ENV=$HOME/.bashrc
 #export XDG_CONFIG_HOME=$HOME/.config/
 
 # merge in defaults and keymaps
@@ -56,7 +56,7 @@ xsetroot -solid '#222222'
 
 #compton -b &
 
-#xautolock -time 5 -locker slock &
+#xautolock -detectsleep -time 10 -locker slock &
 
 # urxvt daemon
 export TERM=/usr/bin/urxvt

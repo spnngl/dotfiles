@@ -12,7 +12,7 @@ set trash                   = +[Gmail]/Trash
 set imap_user               = "nobody@gmail.com"
 
 # smtp
-set smtp_url                = "smtps://${imap_user}@smtp.gmail.com:587/"
+set smtp_url                = "smtp://${imap_user}@smtp.gmail.com:587/"
 
 # Me, myself & I
 set realname                = "nobody"

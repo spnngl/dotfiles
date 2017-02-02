@@ -129,6 +129,11 @@ hc pad $monitor $panel_height
         mute=$(amixer get Master | grep dB | awk '{print $6}' | tr -d "[]")
         [[ $mute = "off" ]] && sound=0%
 
+        # brightness
+        max_brightness=$(cat /sys/class/backlight/intel_backlight/max_brightness)
+        actual_brightness=$(cat /sys/class/backlight/intel_backlight/brightness)
+        brightness=$(echo $max_brightness $actual_brightness | awk '{print $2/$1 * 100}' | cut -d. -f1)
+
         # vpn
         vpn=nop
         [[ -z $(nmcli c show t460 | grep -i état-vpn) ]] || vpn=yes
@@ -137,7 +142,7 @@ hc pad $monitor $panel_height
         cpuavg=$(cut -d\  -f1 /proc/loadavg)
 
         # small adjustments
-        right="$separator vpn: ^fg()$vpn $separator cpu: ^fg()$cpuavg $separator mem: ^fg()$mem% $separator bat: ^fg()$bat0:$bat1 $separator sound: ^fg()$sound $separator $date $separator"
+        right="$separator vpn: ^fg()$vpn $separator cpu: ^fg()$cpuavg $separator mem: ^fg()$mem% $separator bat: ^fg()$bat0:$bat1 $separator brightness: ^fg()$brightness $separator sound: ^fg()$sound $separator $date $separator"
         right_text_only=$(echo -n "$right" | sed 's.\^[^(]*([^)]*)..g')
         # get width of right aligned text.. and add some space..
         width=$($textwidth "$font" "$right_text_only    ")

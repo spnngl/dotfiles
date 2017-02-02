@@ -14,6 +14,9 @@ set incsearch
 set hlsearch
 set encoding=utf-8
 
+" crypt
+setlocal cm=blowfish2
+
 " maintain undo history between sessions
 set undofile
 set undodir=~/.vim/undo
@@ -76,8 +79,10 @@ au BufNewFile,BufRead *.cls set filetype=tex
 
 " Colors "
 set t_Co=256
-set background=dark
+"set background=dark
 colorscheme fahrenheit
+hi Normal ctermbg=None
+hi NonText ctermbg=None
 
 hi ColorColumn ctermbg=256
 syntax on

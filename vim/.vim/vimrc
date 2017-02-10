@@ -32,23 +32,23 @@ set undolevels=1000
 filetype off
 
 " " Vundle "
-" set rtp+=$HOME/.vim/bundle/Vundle.vim
-" call vundle#begin()
-" 
-" " Vundle manage itself "
-" Plugin 'gmarik/Vundle.vim'
-" 
-" " Other(s) plugins "
-" Plugin 'scrooloose/nerdtree'
-" let NERDTreeIgnore=['\.pyc$', '\~$'] 
-" map <C-n> :NERDTreeToggle<CR>
-" Plugin 'kien/ctrlp.vim'
-" Plugin 'tpope/vim-fugitive'
-" Plugin 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
-" set laststatus=2
-" set noshowmode
-" 
-" call vundle#end()
+set rtp+=$HOME/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+" Vundle manage itself "
+Plugin 'gmarik/Vundle.vim'
+
+" Other(s) plugins "
+Plugin 'scrooloose/nerdtree'
+let NERDTreeIgnore=['\.pyc$', '\~$'] 
+map <C-n> :NERDTreeToggle<CR>
+Plugin 'kien/ctrlp.vim'
+Plugin 'tpope/vim-fugitive'
+Plugin 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
+set laststatus=2
+set noshowmode
+
+call vundle#end()
 filetype plugin indent on
 
 " Indent options "
@@ -59,8 +59,22 @@ set tabstop=4 shiftwidth=4 expandtab
 " remove trailing whitespaces and ^M chars
 autocmd FileType c,cpp,java,php,js,python,twig,xml,yml autocmd BufWritePre <buffer> :call setline(1,map(getline(1,"$"),'substitute(v:val,"\\s\\+$","","")'))
 
+" remember cursor position
+autocmd BufReadPost *
+		\ if line("'\"") > 0 && line("'\"") <= line("$") |
+		\ exe "normal g`\"" |
+		\ endif
+
 " Bad whitespaces "
 "au BufRead, BufNewFile *.py, *.pyw, *.c, *.cpp, *.h match BadWhitespace /\s\+$/
+
+" remapping "
+nnoremap <Enter> o<ESC>
+nnoremap <S-Enter> O<ESC>
+nnoremap ê <ESC>:w<CR>
+nnoremap Ê <ESC>:wa<CR>
+nnoremap <TAB> :bn<CR>
+nnoremap <S-TAB> :bp<CR>
 
 " Enable folding "
 set foldmethod=indent

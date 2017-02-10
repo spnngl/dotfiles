@@ -75,6 +75,9 @@ nnoremap ê <ESC>:w<CR>
 nnoremap Ê <ESC>:wa<CR>
 nnoremap <TAB> :bn<CR>
 nnoremap <S-TAB> :bp<CR>
+" invert search repeating
+nnoremap ; ,
+nnoremap , ;
 
 " Enable folding "
 set foldmethod=indent
@@ -97,7 +100,6 @@ set t_Co=256
 colorscheme fahrenheit
 hi Normal ctermbg=None
 hi NonText ctermbg=None
-
 hi ColorColumn ctermbg=256
 syntax on
 

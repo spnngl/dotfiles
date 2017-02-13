@@ -1,3 +1,6 @@
+" First things first
+set nocompatible
+
 " Import bepo keyboard settings "
 source $HOME/.vim/vimrc.bepo
 
@@ -5,7 +8,7 @@ source $HOME/.vim/vimrc.bepo
 set path=/usr/include,/usr/local/include,/usr/local/lib
 
 " Divers "
-set nocompatible
+set hidden
 set modelines=0
 set number
 set cursorline
@@ -13,6 +16,8 @@ set noerrorbells
 set incsearch
 set hlsearch
 set encoding=utf-8
+set synmaxcol=512
+set lazyredraw
 
 " crypt
 setlocal cm=blowfish2

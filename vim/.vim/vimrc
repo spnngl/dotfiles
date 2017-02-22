@@ -8,7 +8,6 @@ source $HOME/.vim/vimrc.bepo
 set path=/usr/include,/usr/local/include,/usr/local/lib
 
 " Divers "
-set hidden
 set modelines=0
 set number
 set cursorline
@@ -47,7 +46,7 @@ Plugin 'gmarik/Vundle.vim'
 
 " Other(s) plugins "
 Plugin 'scrooloose/nerdtree'
-let NERDTreeIgnore=['\.pyc$', '\~$'] 
+let NERDTreeIgnore=['\.pyc$', '\~$']
 let g:NERDTreeDirArrowExpandable="+"
 let g:NERDTreeDirArrowCollapsible="-"
 map <C-n> :NERDTreeToggle<CR>
@@ -56,6 +55,8 @@ Plugin 'tpope/vim-fugitive'
 "Plugin 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
 set laststatus=2
 set noshowmode
+
+Plugin '5long/pytest-vim-compiler'
 
 call vundle#end()
 filetype plugin indent on
@@ -66,13 +67,23 @@ set colorcolumn=90
 set tabstop=4 shiftwidth=4 expandtab
 
 " remove trailing whitespaces and ^M chars
-autocmd FileType c,cpp,java,php,js,python,twig,xml,yml autocmd BufWritePre <buffer> :call setline(1,map(getline(1,"$"),'substitute(v:val,"\\s\\+$","","")'))
+au FileType c,cpp,java,php,js,python,twig,xml,yml au BufWritePre <buffer> :call setline(1,map(getline(1,"$"),'substitute(v:val,"\\s\\+$","","")'))
+
+" remove trailing whitespaces
+"au BufWritePre * :%s/\s\+$//
+
+" remove eol blank lines
+au BufWritePre * silent! :%s#\($\n\s*\)\+\%$##
+
+" pdb killer
+"au FileType python au BufUnload,BufWritePre * %s/\<pdb.set_trace\>/\#pdb.set_trace/g
+" <buffer> pdb.set_trace I#<esc>
 
 " remember cursor position
-autocmd BufReadPost *
-		\ if line("'\"") > 0 && line("'\"") <= line("$") |
-		\ exe "normal g`\"" |
-		\ endif
+au BufReadPost *
+   \ if line("'\"") > 0 && line("'\"") <= line("$") |
+   \ exe "normal g`\"" |
+   \ endif
 
 " Bad whitespaces "
 "au BufRead, BufNewFile *.py, *.pyw, *.c, *.cpp, *.h match BadWhitespace /\s\+$/
@@ -89,6 +100,10 @@ nnoremap <S-TAB> :bp<CR>
 " invert search repeating
 nnoremap ; ,
 nnoremap , ;
+
+" quickfix shortcuts
+nnoremap <A-t> :cn<ESC>
+nnoremap <A-s> :cp<ESC>
 
 " Enable folding "
 set foldmethod=indent

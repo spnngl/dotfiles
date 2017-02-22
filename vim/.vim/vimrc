@@ -1,78 +1,55 @@
-" First things first
-set nocompatible
+"    ▗           
+" ▌ ▌▄ ▛▚▀▖▙▀▖▞▀▖
+" ▐▐ ▐ ▌▐ ▌▌  ▌ ▖
+"  ▘ ▀▘▘▝ ▘▘  ▝▀ 
 
-" Import bepo keyboard settings "
-source $HOME/.vim/vimrc.bepo
+" first things first
+set nocompatible noerrorbells
+filetype on
 
-" Auto-complete C "
+" tidy
+set viminfo+=n~/.vim/viminfo
+
+source $HOME/.vim/rc/remap.vim
+source $HOME/.vim/rc/plugin.vim
+
+" auto-complete c "
 set path=/usr/include,/usr/local/include,/usr/local/lib
 
-" Divers "
+" divers "
 set modelines=0
 set number
 set cursorline
-set noerrorbells
-set incsearch
-set hlsearch
+set incsearch hlsearch
 set encoding=utf-8
-set synmaxcol=512
+set synmaxcol=256
 set lazyredraw
-
-set viminfo+=n~/.vim/viminfo
+set shell=/bin/mksh
+set showcmd showmatch
+"set spell
+"set wildignore=*.pyc,*.o
+set history=50
 
 " crypt
 setlocal cm=blowfish2
 
-" maintain undo history between sessions
-set undofile
-set undodir=~/.vim/undo
+" undo & backup & swap
+set undofile undodir=~/.vim/undo undolevels=1000
+set nobackup nowritebackup
 set noswapfile
 
-" case insensitive search
-set ignorecase
-set smartcase
-set infercase
+" good search
+set ignorecase smartcase infercase
 
-set shell=/bin/bash
-set undolevels=1000
-filetype off
-
-" " Vundle "
-set rtp+=$HOME/.vim/bundle/Vundle.vim
-call vundle#begin()
-
-" Vundle manage itself "
-Plugin 'gmarik/Vundle.vim'
-
-" Other(s) plugins "
-Plugin 'scrooloose/nerdtree'
-let NERDTreeIgnore=['\.pyc$', '\~$']
-let g:NERDTreeDirArrowExpandable="+"
-let g:NERDTreeDirArrowCollapsible="-"
-map <C-n> :NERDTreeToggle<CR>
-Plugin 'kien/ctrlp.vim'
-Plugin 'tpope/vim-fugitive'
-"Plugin 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
-set laststatus=2
-set noshowmode
-
-Plugin '5long/pytest-vim-compiler'
-
-call vundle#end()
-filetype plugin indent on
-
-" Indent options "
-set autoindent
-set colorcolumn=90
+" indent options "
 set tabstop=4 shiftwidth=4 expandtab
+set colorcolumn=90
+set autoindent
 
 " remove trailing whitespaces and ^M chars
-au FileType c,cpp,java,php,js,python,twig,xml,yml au BufWritePre <buffer> :call setline(1,map(getline(1,"$"),'substitute(v:val,"\\s\\+$","","")'))
+au FileType c,cpp,java,php,js,python,xml,yml au BufWritePre <buffer> :call setline(1,map(getline(1,"$"),'substitute(v:val,"\\s\\+$","","")'))
 
-" remove trailing whitespaces
-"au BufWritePre * :%s/\s\+$//
-
-" remove eol blank lines
+" remove eol blank line(s)
 au BufWritePre * silent! :%s#\($\n\s*\)\+\%$##
 
 " pdb killer
@@ -85,52 +62,18 @@ au BufReadPost *
    \ exe "normal g`\"" |
    \ endif
 
-" Bad whitespaces "
-"au BufRead, BufNewFile *.py, *.pyw, *.c, *.cpp, *.h match BadWhitespace /\s\+$/
-
-" remapping "
-nnoremap <Enter> o<ESC>
-nnoremap <S-Enter> O<ESC>
-nnoremap <C-é> <ESC>:nohl<CR>
-nnoremap ê <ESC>:w<CR>
-nnoremap Ê <ESC>:wa<CR>
-nnoremap <TAB> :bn<CR>
-nnoremap <S-TAB> :bp<CR>
-
-" invert search repeating
-nnoremap ; ,
-nnoremap , ;
-
-" quickfix shortcuts
-nnoremap <A-t> :cn<ESC>
-nnoremap <A-s> :cp<ESC>
-
-" Enable folding "
+" folding "
 set foldmethod=indent
 set foldlevel=99
 nnoremap <space> za
 
-" For python "
-let python_highlight_all=1
-au BufNewFile, BufRead *.py
-    \ set softtabstop=4
-    \ set textwidth=79
-    \ set fileformat=unix
-
-" For latex
+" latex
 au BufNewFile,BufRead *.cls set filetype=tex
 
-" Colors "
-set t_Co=256
-"set background=dark
+" colors
 colorscheme fahrenheit
-hi Normal ctermbg=None
-hi NonText ctermbg=None
-hi ColorColumn ctermbg=256
 syntax on
 
-
-" Commands
 " remove trailing white space
 command Nows :%s/\s\+$//
 

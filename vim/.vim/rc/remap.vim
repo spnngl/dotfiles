@@ -86,3 +86,5 @@ nnoremap , ;
 " quickfix shortcuts
 nnoremap <A-t> :cn<ESC>
 nnoremap <A-s> :cp<ESC>
+
+inoremap rs <ESC>

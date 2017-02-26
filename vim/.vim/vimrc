@@ -5,6 +5,7 @@
 
 " first things first
 set nocompatible noerrorbells
+let mapleader = "<space>"
 filetype on
 
 " tidy
@@ -43,7 +44,6 @@ set ignorecase smartcase infercase
 
 " indent options "
 set tabstop=4 shiftwidth=4 expandtab
-set colorcolumn=90
 set autoindent
 
 " remove trailing whitespaces and ^M chars
@@ -63,9 +63,9 @@ au BufReadPost *
    \ endif
 
 " folding "
-set foldmethod=indent
-set foldlevel=99
-nnoremap <space> za
+"set foldmethod=indent
+"set foldlevel=99
+"nnoremap <space> za
 
 " latex
 au BufNewFile,BufRead *.cls set filetype=tex
@@ -73,6 +73,8 @@ au BufNewFile,BufRead *.cls set filetype=tex
 " colors
 colorscheme fahrenheit
 syntax on
+set colorcolumn=90
+"hi ColorColumn ctermbg=lightgrey
 
 " remove trailing white space
 command Nows :%s/\s\+$//

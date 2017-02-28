@@ -1,7 +1,7 @@
-"    ▗           
+"    ▗
 " ▌ ▌▄ ▛▚▀▖▙▀▖▞▀▖
 " ▐▐ ▐ ▌▐ ▌▌  ▌ ▖
-"  ▘ ▀▘▘▝ ▘▘  ▝▀ 
+"  ▘ ▀▘▘▝ ▘▘  ▝▀
 
 " first things first
 set nocompatible noerrorbells
@@ -26,7 +26,7 @@ set encoding=utf-8
 set synmaxcol=256
 set lazyredraw
 set shell=/bin/mksh
-set showcmd showmatch
+set showcmd "showmatch
 "set spell
 "set wildignore=*.pyc,*.o
 set history=50
@@ -46,29 +46,10 @@ set ignorecase smartcase infercase
 set tabstop=4 shiftwidth=4 expandtab
 set autoindent
 
-" remove trailing whitespaces and ^M chars
-au FileType c,cpp,java,php,js,python,xml,yml au BufWritePre <buffer> :call setline(1,map(getline(1,"$"),'substitute(v:val,"\\s\\+$","","")'))
-
-" remove eol blank line(s)
-au BufWritePre * silent! :%s#\($\n\s*\)\+\%$##
-
-" pdb killer
-"au FileType python au BufUnload,BufWritePre * %s/\<pdb.set_trace\>/\#pdb.set_trace/g
-" <buffer> pdb.set_trace I#<esc>
-
-" remember cursor position
-au BufReadPost *
-   \ if line("'\"") > 0 && line("'\"") <= line("$") |
-   \ exe "normal g`\"" |
-   \ endif
-
 " folding "
 "set foldmethod=indent
 "set foldlevel=99
 "nnoremap <space> za
-
-" latex
-au BufNewFile,BufRead *.cls set filetype=tex
 
 " colors
 colorscheme fahrenheit
@@ -76,8 +57,40 @@ syntax on
 set colorcolumn=90
 "hi ColorColumn ctermbg=lightgrey
 
+" (au)commands
+aug indesirable
+    au!
+    " remove trailing whitespaces and ^M chars
+    au BufWritePre <buffer> :call setline(1,map(getline(1,"$"),'substitute(v:val,"\\s\\+$","","")'))
+
+    " remove eol blank line(s)
+    au BufWritePre * silent! :%s#\($\n\s*\)\+\%$##
+aug end
+
+" pdb killer
+"au FileType python au BufUnload,BufWritePre * %s/\<pdb.set_trace\>/\#pdb.set_trace/g
+" <buffer> pdb.set_trace I#<esc>
+
+aug divers
+    au!
+    " remember cursor position
+    au BufReadPost *
+       \ if line("'\"") > 0 && line("'\"") <= line("$") |
+       \ exe "normal g`\"" |
+       \ endif
+aug end
+
+aug format
+    au!
+    " latex
+    au BufNewFile,BufRead *.cls set filetype=tex
+aug end
+
 " remove trailing white space
-command Nows :%s/\s\+$//
+com! Nows :%s/\s\+$//
 
 " remove blank lines
-command Nobl :g/^\s*$/d
+com! Nobl :g/^\s*$/d
+
+onoremap in( :<c-u>normal! f(vi(<cr>
+onoremap il( :<c-u>normal! F)vi(<cr>

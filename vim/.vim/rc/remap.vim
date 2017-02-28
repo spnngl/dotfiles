@@ -55,8 +55,8 @@ noremap gÉ :exe "silent! tablast"<CR>
 noremap g" g0
  
 " <> en direct
-noremap « <<
-noremap » >>
+noremap « <
+noremap » >
  
 " gestion des fenêtres
 noremap wt <C-w>j
@@ -87,4 +87,4 @@ nnoremap , ;
 nnoremap <A-t> :cn<ESC>
 nnoremap <A-s> :cp<ESC>
 
-inoremap rs <ESC>
+inoremap ,, <ESC>

@@ -5,7 +5,7 @@
 
 " first things first
 set nocompatible noerrorbells
-let mapleader = "<space>"
+let mapleader = "à"
 filetype on
 
 " tidy
@@ -29,14 +29,15 @@ set shell=/bin/mksh
 set showcmd "showmatch
 "set spell
 "set wildignore=*.pyc,*.o
-set history=50
+set history=2047
+set hidden
 
 " crypt
 setlocal cm=blowfish2
 
 " undo & backup & swap
-set undofile undodir=~/.vim/undo undolevels=1000
-set nobackup nowritebackup
+set undofile undodir=~/.vim/undo undolevels=1000 "undoreload=1000
+set nobackup nowritebackup backupdir=~/.vim/backup
 set noswapfile
 
 " good search
@@ -58,13 +59,20 @@ set colorcolumn=90
 "hi ColorColumn ctermbg=lightgrey
 
 " (au)commands
-aug indesirable
+aug wscleaning
     au!
     " remove trailing whitespaces and ^M chars
     au BufWritePre <buffer> :call setline(1,map(getline(1,"$"),'substitute(v:val,"\\s\\+$","","")'))
-
     " remove eol blank line(s)
     au BufWritePre * silent! :%s#\($\n\s*\)\+\%$##
+aug end
+
+" spelling check
+aug spelling
+    au!
+    au filetype tex  :setlocal spell spelllang=en
+    au filetype markdown :setlocal spell spelllang=en
+    au filetype gitcommit  :setlocal spell spelllang=en
 aug end
 
 " pdb killer
@@ -82,7 +90,6 @@ aug end
 
 aug format
     au!
-    " latex
     au BufNewFile,BufRead *.cls set filetype=tex
 aug end
 

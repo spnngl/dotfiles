@@ -83,8 +83,8 @@ nnoremap <S-TAB> :bp<CR>
 nnoremap ; ,
 nnoremap , ;
 
-" quickfix shortcuts
-nnoremap <A-t> :cn<ESC>
-nnoremap <A-s> :cp<ESC>
+inoremap qq <ESC>
 
-inoremap ,, <ESC>
+" quickfix shortcuts
+nnoremap <leader>t :cn<esc>
+nnoremap <leader>s :cp<esc>

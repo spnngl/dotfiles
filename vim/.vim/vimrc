@@ -88,7 +88,7 @@ aug divers
        \ endif
 aug end
 
-aug format
+aug latex
     au!
     au BufNewFile,BufRead *.cls set filetype=tex
 aug end
@@ -106,7 +106,7 @@ onoremap il( :<c-u>normal! F)vi(<cr>
 nnoremap <leader>q :call QuickfixToggle()<cr>
 
 let g:quickfix_is_open = 0
-function! QuickfixToggle()
+fu! QuickfixToggle()
     if g:quickfix_is_open
         cclose
         let g:quickfix_is_open = 0
@@ -114,4 +114,15 @@ function! QuickfixToggle()
         copen
         let g:quickfix_is_open = 1
     endif
-endfunction
+endfu
+
+aug markdown
+    au!
+    nnoremap <leader>p :call PreviewMd()<cr>
+
+    fu! PreviewMd()
+        "exe "silent !markdown % | lynx -stdin"
+        exe "silent !markdown % | w3m -T text/html"
+        exe "redraw!"
+    endfu
+aug end

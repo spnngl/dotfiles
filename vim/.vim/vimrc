@@ -122,7 +122,8 @@ aug markdown
 
     fu! PreviewMd()
         "exe "silent !markdown % | lynx -stdin"
-        exe "silent !markdown % | w3m -T text/html"
+        "exe "silent !markdown % | w3m -T text/html"
+        exe "silent !cat % | pandoc -f markdown_github | w3m -T text/html"
         exe "redraw!"
     endfu
 aug end

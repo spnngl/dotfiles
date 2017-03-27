@@ -25,18 +25,19 @@ series:
     - Supernatural
     - Game of Thrones
     - You're The Worst
-    - Black Mirror
     #- Sherlock
     #- Stranger Things
     - The Knick
+    - The Expanse
   # Autres séries pour lesquelles je me contente d'une résolution plus basse
   normal:
     - Rick and Morty
     - Star Wars Rebels
+    - Westworld
     #- Doctor Who (2005)
     #- Gravity Falls
-    - Community
-    - Scrubs
+    #- Community
+    #- Scrubs
     #- South Park
     - Silicon Valley
     - The Big Bang Theory
@@ -46,5 +47,6 @@ series:
   # Pour les "web series"
   webrip:
     - House of Cards
-    - Marco Polo
+    - Black Mirror
+    #- Marco Polo
     #- Orange Is The New Black

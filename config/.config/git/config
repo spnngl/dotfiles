@@ -1,6 +1,12 @@
 
 [user]
 	name = atbd
-	email = dlnn13001@gmail.com
+	email = anthony.2lannoy@gmail.com
 [core]
-	editor = vim
+    editor = vim
+    autocrlf = input
+    whitespace = trailing-space
+[color]
+    ui = true
+#[diff]
+#    external = vimdiff

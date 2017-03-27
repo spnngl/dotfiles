@@ -1,0 +1,43 @@
+#!/bin/bash
+
+# check privilege
+if [[ $UID != 0 ]]; then
+    echo "Must be run with sudo."
+    echo "sudo $0 $*"
+    exit 1
+fi
+
+# constants
+FREE='555'
+TEXT='coucou'
+WAIT_SMS=1 # in seconds
+
+function modem() {
+    m=$(mmcli -L | grep Modem | \
+        awk '{split($0,a,"/"); split(a[6],b," "); print b[1]}');
+    echo $m
+}
+
+function last_sms() {
+    lsms=$(mmcli -m $1 --messaging-list-sms | \
+           awk 'END{ print }' | \
+           awk '{split($0,a,"/"); split(a[6],b," "); print b[1]}')
+    echo $lsms
+}
+
+# get the modem number
+MODEM=$(modem)
+
+# sms creation
+mmcli -m $MODEM --messaging-create-sms="number=$FREE,text=$TEXT"
+
+# send it
+TOSEND=$(last_sms $MODEM)
+mmcli -s $TOSEND --send
+
+# wait for the sms
+sleep $WAIT_SMS
+
+# received
+RECEIVED=$(last_sms $MODEM)
+mmcli -s $RECEIVED

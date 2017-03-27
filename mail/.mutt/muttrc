@@ -8,6 +8,7 @@ macro index <F6> '<sync-mailbox><enter-command>source $HOME/.mutt/accounts/a2<en
 macro index <F7> '<sync-mailbox><enter-command>source $HOME/.mutt/accounts/n7<enter><change-folder>!<enter>'
 
 # default
+source "gpg -d $HOME/.mutt/password.gpg |"
 source $HOME/.mutt/accounts/d1
 
 # hooks
@@ -17,7 +18,7 @@ folder-hook 'n7' 'source $HOME/.mutt/accounts/n7'
 
 # others
 #source $HOME/.mutt/sidebar
-source $HOME/.mutt/colors/colors.old #vombatidae.mutt
+source $HOME/.mutt/colors
 source $HOME/.mutt/bindings
 
 #gpg settings
@@ -33,6 +34,7 @@ set crypt_replyencrypt      = yes
 #set crypt_replysignencrypted= yes
 
 ### ~/.muttrc ###
+set dsn_notify              = "failure,delay,success"
 set editor                  = "vim -c 'set syntax=mail ft=mail enc=utf-8'"
 #set pager                   = /usr/bin/less
 set send_charset            = 'utf-8'
@@ -57,12 +59,18 @@ auto_view text/html
 
 # imap
 set mail_check              = 60 #seconds
+set check_new               = yes
 set imap_keepalive          = 300 #seconds
 
-# cache
-#set header_cache            = "~/var/mail"
-#set message_cachedir        = "~/var/mail"
-#set certificate_file        = "~/var/mail"
+# secure
+set move                    = no
+set ssl_starttls            = yes
+set ssl_force_tls           = yes
+
+# certificates
+set header_cache            = "$HOME/.mutt/cache/headers"
+set message_cachedir        = "$HOME/.mutt/cache/bodies"
+set certificate_file        = "$HOME/.mutt/certificates"
 
 # address book
 # source ~/.aliases
@@ -72,4 +80,3 @@ set imap_keepalive          = 300 #seconds
 #set folder                  = ~/var/mail
 #set postponed               = ~/var/mail/brouillons
 #set record                  = ~/var/mail/sent
-

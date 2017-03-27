@@ -1,10 +1,4 @@
-#!/bin/ksh
-######################################
-# Note à moi-même #
-#
-# Pour ls coloré installer 'colorls'
-#
-# ###################################
+#!/bin/bash
 
 userresources=$HOME/.Xresources
 usermodmap=$HOME/.Xmodmap
@@ -12,10 +6,10 @@ sysresources=/etc/X11/xinit/.Xresources
 sysmodmap=/etc/X11/xinit/.Xmodmap
 
 # Trackpoint settings
-xinput set-prop /dev/wsmouse "WS Pointer Wheel Emulation" 1
-xinput set-prop /dev/wsmouse "WS Pointer Wheel Emulation Button" 2
-xinput set-prop /dev/wsmouse "WS Pointer Wheel Emulation Timeout" 200
-xinput set-prop /dev/wsmouse "WS Pointer Wheel Emulation Axes" 6 7 4 5
+xinput set-prop "TPPS/2 IBM TrackPoint" "Evdev Wheel Emulation" 1
+xinput set-prop "TPPS/2 IBM TrackPoint" "Evdev Wheel Emulation Button" 2
+xinput set-prop "TPPS/2 IBM TrackPoint" "Evdev Wheel Emulation Timeout" 200
+xinput set-prop "TPPS/2 IBM TrackPoint" "Evdev Wheel Emulation Axes" 6 7 4 5
 
 # Use GTK widgets in place of QT
 export QT_STYLE_OVERRIDE=GTK+
@@ -25,7 +19,7 @@ export GTK_IM_MODULE=xim
 export LC_CTYPE=fr_FR.UTF-8
 export LESSCHARSET=utf-8
 #setxkbmap -option compose:ralt
-export ENV=$HOME/.kshrc
+#export ENV=$HOME/.bashrc
 #export XDG_CONFIG_HOME=$HOME/.config/
 
 # merge in defaults and keymaps
@@ -55,18 +49,18 @@ fi
 
 # desktop wallpaper
 #sh $HOME/bin/.fehbg &
-#xsetroot -solid '#491021'
+xsetroot -solid '#222222'
 
 # hide x11 cursor
 #unclutter &
 
 #compton -b &
 
-#xautolock -time 5 -locker slock &
+#xautolock -detectsleep -time 10 -locker slock &
 
 # urxvt daemon
-export TERM=/usr/local/bin/urxvt
-export TERMINAL=/usr/local/bin/urxvt
+export TERM=/usr/bin/urxvt
+export TERMINAL=/usr/bin/urxvt
 urxvtd -q -f -o &
 
 # window manager

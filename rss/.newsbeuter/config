@@ -1,8 +1,12 @@
-# OSX
-browser open
-# Not OSX
-#browser firefox
+browser vivaldi
 
+# ttrss
+urls-source "ttrss"
+ttrss-url "https://framanews.org/ttrss2/"
+ttrss-flag-publish "p"
+ttrss-flag-star "s"
+ttrss-login "atbd"
+ttrss-passwordfile "$HOME/.newsbeuter/passwd"
 
 # couleurs et style
 color background default default

@@ -1,6 +1,6 @@
+" BÉPO
+" ------------------------------
 " {W} -> [É]
-" ——————————
-" On remappe W sur É :
 noremap é w
 noremap É W
 " Corollaire: on remplace les text objects aw, aW, iw et iW
@@ -9,30 +9,21 @@ onoremap aé aw
 onoremap aÉ aW
 onoremap ié iw
 onoremap iÉ iW
-" Pour faciliter les manipulations de fenêtres, on utilise {W} comme un Ctrl+W :
+" Pour faciliter les manipulations de fenêtres, {W} -> ctrl + w :
 noremap w <C-w>
 noremap W <C-w><C-w>
  
 " [HJKL] -> {CTSR}
-" ————————————————
-" {cr} = « gauche / droite »
 noremap c h
 noremap r l
-" {ts} = « haut / bas »
 noremap t j
 noremap s k
-" {CR} = « haut / bas de l'écran »
 noremap C H
 noremap R L
-" {TS} = « joindre / aide »
 noremap T J
 noremap S K
-" Corollaire : repli suivant / précédent
-"noremap zs zj
-"noremap zt zk
  
 " {HJKL} <- [CTSR]
-" ————————————————
 " {J} = « Jusqu'à »            (j = suivant, J = précédant)
 noremap j t
 noremap J T
@@ -64,12 +55,10 @@ noremap gÉ :exe "silent! tablast"<CR>
 noremap g" g0
  
 " <> en direct
-" ————————————
 noremap « <
 noremap » >
  
-" Remaper la gestion des fenêtres
-" ———————————————————————————————
+" gestion des fenêtres
 noremap wt <C-w>j
 noremap ws <C-w>k
 noremap wc <C-w>h
@@ -79,3 +68,23 @@ noremap wo <C-w>s
 noremap wp <C-w>o
 noremap w<SPACE> :split<CR>
 noremap w<CR> :vsplit<CR>
+
+" -------------------------
+
+" others
+nnoremap <Enter> o<ESC>
+nnoremap <S-Enter> O<ESC>
+nnoremap ê <ESC>:w<CR>
+nnoremap Ê <ESC>:wa<CR>
+nnoremap <TAB> :bn<CR>
+nnoremap <S-TAB> :bp<CR>
+
+" invert search repeating
+nnoremap ; ,
+nnoremap , ;
+
+inoremap qq <ESC>
+
+" quickfix shortcuts
+nnoremap <leader>t :cn<esc>
+nnoremap <leader>s :cp<esc>

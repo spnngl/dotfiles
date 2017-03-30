@@ -14,10 +14,10 @@ set viminfo+=n~/.vim/viminfo
 source $HOME/.vim/rc/remap.vim
 source $HOME/.vim/rc/plugin.vim
 
-" auto-complete c "
+" auto-complete c
 set path=/usr/include,/usr/local/include,/usr/local/lib
 
-" divers "
+" divers
 set modelines=0
 set number
 set cursorline
@@ -27,8 +27,7 @@ set synmaxcol=256
 set lazyredraw
 set shell=/bin/mksh
 set showcmd "showmatch
-"set spell
-"set wildignore=*.pyc,*.o
+set wildmenu wildignore=*.pyc,*.o
 set history=2047
 set hidden
 
@@ -122,8 +121,8 @@ aug markdown
 
     fu! PreviewMd()
         "exe "silent !markdown % | lynx -stdin"
-        "exe "silent !markdown % | w3m -T text/html"
-        exe "silent !cat % | pandoc -f markdown_github | w3m -T text/html"
+        exe "silent !markdown % | w3m -T text/html"
+        "exe "silent !cat % | pandoc -f markdown_github | w3m -T text/html"
         exe "redraw!"
     endfu
 aug end

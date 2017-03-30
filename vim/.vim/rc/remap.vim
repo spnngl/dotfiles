@@ -49,8 +49,8 @@ noremap gt gj
 noremap gb gT
 noremap gé gt
 " optionnel : {gB} / {gÉ} pour aller au premier / dernier onglet
-noremap gB :exe "silent! tabfirst"<CR>
-noremap gÉ :exe "silent! tablast"<CR>
+noremap gB :exe "silent! tabfirst"<cr>
+noremap gÉ :exe "silent! tablast"<cr>
 " optionnel : {g"} pour aller au début de la ligne écran
 noremap g" g0
  
@@ -66,25 +66,31 @@ noremap wr <C-w>l
 noremap wd <C-w>c
 noremap wo <C-w>s
 noremap wp <C-w>o
-noremap w<SPACE> :split<CR>
-noremap w<CR> :vsplit<CR>
+noremap w<SPACE> :split<cr>
+noremap w<cr> :vsplit<cr>
 
 " -------------------------
 
 " others
-nnoremap <Enter> o<ESC>
-nnoremap <S-Enter> O<ESC>
-nnoremap ê <ESC>:w<CR>
-nnoremap Ê <ESC>:wa<CR>
-nnoremap <TAB> :bn<CR>
-nnoremap <S-TAB> :bp<CR>
+nnoremap <Enter> o<esc>
+nnoremap <S-Enter> O<esc>
+nnoremap ê <esc>:w<cr>
+nnoremap Ê <esc>:wa<cr>
+nnoremap <TAB> :bn<cr>
+nnoremap <S-TAB> :bp<cr>
 
 " invert search repeating
 nnoremap ; ,
 nnoremap , ;
 
-inoremap qq <ESC>
+inoremap qq <esc>
 
 " quickfix shortcuts
 nnoremap <leader>t :cn<esc>
 nnoremap <leader>s :cp<esc>
+
+" nohighlight
+nnoremap <leader>n :noh<esc>
+
+" save session
+nnoremap <leader>m :mksession<esc>

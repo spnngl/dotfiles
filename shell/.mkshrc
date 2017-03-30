@@ -2,8 +2,8 @@
 
 bind -m '^L'=clear'^J'
 
-PS1='$(date +%H:%M:%S)|' 
-PS1+="\${PWD##*/} \$ "
+#PS1='$(date +%H:%M:%S)|'
+PS1="\${PWD##*/}|"
 export PS1
 
 PATH=$PATH:/sbin/:/opt/local/bin/:/usr/sbin/:$GOPATH/bin/
@@ -16,10 +16,10 @@ export EDITOR=/usr/bin/vim
 export TOP='-s 1'
 export PAGER=less
 #export ENV=$HOME/.mkshrc
-export VIMINIT='source $HOME/.vim/vimrc'
+#export VIMINIT='source $HOME/.vim/vimrc'
 
 export HISTFILE=$HOME/.mksh.hist
-export HISTSIZE=3000
+export HISTSIZE=2047
 
 alias ipython='ipython --pylab --no-banner'
 alias ..='cd ..'
@@ -28,3 +28,4 @@ alias ....='cd ../../..'
 alias ls='ls --color'
 alias ll='ls -lh'
 alias g='git'
+alias bfmtv='mpv --no-resume-playback http://www.bfmtv.com/mediaplayer/live-video/'

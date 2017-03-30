@@ -1,15 +1,15 @@
 # ┏┳┓╻ ╻╺┳╸╺┳╸┏━┓┏━╸
-# ┃┃┃┃ ┃ ┃  ┃ ┣┳┛┃  
-# ╹ ╹┗━┛ ╹  ╹ ╹┗╸┗━╸ 
+# ┃┃┃┃ ┃ ┃  ┃ ┣┳┛┃
+# ╹ ╹┗━┛ ╹  ╹ ╹┗╸┗━╸
 
 # accounts (do not upload)
 macro index <F5> '<sync-mailbox><enter-command>source $HOME/.mutt/accounts/d1<enter><change-folder>!<enter>'
 macro index <F6> '<sync-mailbox><enter-command>source $HOME/.mutt/accounts/a2<enter><change-folder>!<enter>'
-macro index <F7> '<sync-mailbox><enter-command>source $HOME/.mutt/accounts/n7<enter><change-folder>!<enter>'
+macro index <F7> '<sync-mailbox><enter-command>source $HOME/.mutt/accounts/xy<enter><change-folder>!<enter>'
 
 # default
 source "gpg -d $HOME/.mutt/password.gpg |"
-source $HOME/.mutt/accounts/d1
+source $HOME/.mutt/accounts/xy
 
 # hooks
 folder-hook 'd1' 'source $HOME/.mutt/accounts/d1'

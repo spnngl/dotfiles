@@ -6,6 +6,7 @@ templates:
       - rss: { url: 'https://eztv.ag/ezrss.xml' } #ezrss
       - rss: { url: 'https://yts.ag/rss/0/720p/all/0' } # YIFY
       - rss: { url: 'http://showrss.info/show/44.rss' } # Rick & morty
+      - rss: { url: 'http://showrss.info/show/48.rss' } # TBBT
       - rss: { url: 'http://showrss.info/show/43.rss' } # Simpsons
       - rss: { url: 'http://showrss.info/show/75.rss' } # Modern Family
       - rss: { url: 'http://showrss.info/show/144.rss' } # Supernatural
@@ -19,29 +20,14 @@ templates:
       - rss: { url: 'http://showrss.info/show/297.rss' } # black mirror
       - rss: { url: 'http://showrss.info/show/74.rss' } # you're the worst
       - rss: { url: 'http://showrss.info/show/549.rss' } # Outcast
+      - rss: { url: 'http://showrss.info/show/651.rss' } # Westworld
+      - rss: { url: 'http://showrss.info/show/370.rss' } # The Expanse
     exists_series:
       - '/media/torrent/done/'
 
   series_suivies:
     include: [ series.yml ]
 
-  # Paramètres pour premiers épisodes de nouvelles séries
-#  series_premieres:
-#    thetvdb_lookup: yes
-#    require_field: tvdb_genres
-#    regexp:
-#      reject:
-#        - animation: {from: tvdb_genres}
-#        - documentary: {from: tvdb_genres}
-#        - talk show: {from: tvdb_genres}
-#        - game show: {from: tvdb_genres}
-#        - reality: {from: tvdb_genres}
-#        - children: {from: tvdb_genres}
-#        - food: {from: tvdb_genres}
-#        - home and garden: {from: tvdb_genres}
-#    series_premiere: no
-
-# Definition des taches : flexget execute --task XX    
 tasks:
   Series:
     priority: 10
@@ -52,14 +38,13 @@ tasks:
   Subtitles:
     filesystem:
       path:
-        - /media/torrent/subs
+        - /media/torrent/done
       regexp: '.*\.(avi|mkv|mp4)$'
       recursive: yes
     accept_all: yes
     subliminal:
       languages:
         - eng
-      #alternatives:
       exact_match: yes
       providers: [addic7ed, opensubtitles]
       single: no
@@ -71,21 +56,3 @@ schedules:
   - tasks: [Series]
     schedule:
       day: '*/2'
-
-#  Series_Premieres:
-#    priority: 40
-#    template:
-#      - series_global
-#      - series_premieres
-#    # We use the manual plugin so that this task only runs when explicitly called
-#    manual: yes
-#  # Pour initier la base de données avec les series déjà existantes
-#  # flexget execute --tasks Series_Init --disable-advancement --learn
-#  Series_Init:
-#    find:
-#      regexp: .*(avi|mkv|mp4)$
-#      path: /media/torrent/done/
-#      recursive: yes
-#    template: series_global
-#    # We use the manual plugin so that this task only runs when explicitly called
-#    manual: yes

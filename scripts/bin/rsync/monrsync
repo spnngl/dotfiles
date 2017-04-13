@@ -1,0 +1,9 @@
+#!/bin/bash
+
+SERVER=$1
+
+rsync --dry-run -avzh --progress \
+    --exclude='etc' --exclude='tmp' --exclude='bin' --exclude='img' \
+    --exclude='coreboot' --exclude='enseeiht' --exclude='vpn' \
+    --exclude-from=$HOME/bin/rsync/exclus --exclude='Desktop' \
+    -e ssh $HOME/ $USER@$SERVER:$HOME/backup

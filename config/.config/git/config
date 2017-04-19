@@ -1,7 +1,7 @@
 
 [user]
-	name = atbd
-	email = anthony.2lannoy@gmail.com
+	name = Anthony Delannoy
+	email = xy@atbd.me
 [core]
     editor = vim
     autocrlf = input

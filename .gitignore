@@ -1,5 +1,7 @@
 *.o
 *.a
+*.hi
+*.errors
 *.py{c,o}
 *.so
 *.log

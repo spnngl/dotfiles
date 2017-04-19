@@ -27,7 +27,10 @@ set synmaxcol=256
 set lazyredraw
 set shell=/bin/mksh
 set showcmd "showmatch
-set wildmenu wildignore=*.pyc,*.o
+set wildmenu
+set wildignore=*.pyc,*.o
+set wildignore+=*.pdf,*.psd
+set wildignore+=*.bmp,*.gif,*.ico,*.jpg,*.png,*.tiff
 set history=2047
 set hidden
 

@@ -59,10 +59,11 @@ xsetroot -solid '#222222'
 #xautolock -detectsleep -time 10 -locker slock &
 
 # urxvt daemon
-export TERM=/usr/bin/urxvt
-export TERMINAL=/usr/bin/urxvt
+export TERM=/usr/bin/urxvtc
+export TERMINAL=/usr/bin/urxvtc
 urxvtd -q -f -o &
 
 # window manager
 #exec /usr/local/bin/spectrwm
-exec herbstluftwm --locked
+#exec herbstluftwm --locked
+exec ck-launch-session dbus-launch --sh-syntax --exit-with-session xmonad

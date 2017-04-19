@@ -16,7 +16,7 @@ URxvt*font: xft:iosevka-regular:size=14:antialias=true:hinting=true,xft:Liberati
 !URxvt.letterSpace: -3
 
 ! terminal padding
-URxvt.internalBorder: 5
+URxvt.internalBorder: 10
 
 ! make otf / ttf fonts look pretty.  does not matter if you are using a bitmap font.
 Xft.autohint: 0
@@ -24,6 +24,7 @@ Xft.lcdfilter:  lcddefault
 Xft.hintstyle:  hintfull
 Xft.hinting: 1
 Xft.antialias: 1
+Xft.dpi: 110
 Xft.rgba: rgb
 
 ! clickable links, clipboard support, mouse wheel support, and on the fly font resizing

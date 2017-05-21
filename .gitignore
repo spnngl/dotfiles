@@ -21,3 +21,6 @@ viminfo
 watch_later
 bookmarks
 tagged
+xmonad-x86_64-linux
+*.tmp
+hosts

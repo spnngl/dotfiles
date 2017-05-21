@@ -21,6 +21,10 @@ export PAGER=less
 export HISTFILE=$HOME/.mksh.hist
 export HISTSIZE=2047
 
+ANSIBLE_DIR=$HOME/.config/ansible
+export ANSIBLE_CONFIG=$ANSIBLE_DIR/ansible.cfg
+export ANSIBLE_INVENTORY=$ANSIBLE_DIR/hosts
+
 alias ipython='ipython --pylab --no-banner'
 alias ..='cd ..'
 alias ...='cd ../..'
@@ -28,4 +32,6 @@ alias ....='cd ../../..'
 alias ls='ls --color'
 alias ll='ls -lh'
 alias g='git'
+alias yt='mpv $(xclip -o -selection clipboard)'
+alias serie='mpv --sub-file *.srt *.{mkv,mp4}'
 alias bfmtv='mpv --no-resume-playback http://www.bfmtv.com/mediaplayer/live-video/'

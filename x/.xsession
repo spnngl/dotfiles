@@ -50,6 +50,8 @@ fi
 # desktop wallpaper
 #sh $HOME/bin/.fehbg &
 xsetroot -solid '#222222'
+# cursor setting
+xsetroot -cursor_name left_ptr
 
 # hide x11 cursor
 #unclutter &
@@ -66,4 +68,4 @@ urxvtd -q -f -o &
 # window manager
 #exec /usr/local/bin/spectrwm
 #exec herbstluftwm --locked
-exec ck-launch-session dbus-launch --sh-syntax --exit-with-session xmonad
+exec xmonad

@@ -18,6 +18,9 @@ set laststatus=2
 set noshowmode
 
 Plugin '5long/pytest-vim-compiler'
+Plugin 'maverickg/stan'
+"Bundle 'zah/nim.vim'
+Bundle 'baabelfish/nvim-nim'
 
 call vundle#end()
 filetype plugin indent on

@@ -51,8 +51,10 @@ myLayoutHook = avoidStruts $ smartBorders $ ResizableTall 1 (5/100) (1/2) []
 
 -- Manage
 myManageHook = composeAll [ isFullscreen            --> doFullFloat,
-                            className =? "Firefox" --> doShift myws3,
-                            className =? "mpv" --> doFloat
+                            className =? "Firefox"  --> doShift myws3,
+                            className =? "mpv"      --> doFloat,
+                            className =? "Slack"    --> doFloat,
+                            className =? "Slack"    --> doShift myws1
                           ]
 
 -- Event Hooks
@@ -80,7 +82,7 @@ myKeys :: XConfig Layout -> M.Map (KeyMask, KeySym) (X ())
 myKeys conf@(XConfig {XMonad.modMask = modMask}) = M.fromList $
     -- launching apps
     [ ((modMask, xK_Return), safeSpawn (XMonad.terminal conf) [])
-    , ((modMask,                 xK_d     ), safeSpawn "dmenu_run" ["-b", "-i"])
+    , ((modMask,                 xK_d     ), safeSpawn "dmenu_run" ["-i"])
     -- Kill windows
     , ((modMask, xK_x     ), kill)
     -- layouts
@@ -121,4 +123,10 @@ myKeys conf@(XConfig {XMonad.modMask = modMask}) = M.fromList $
                                          , xK_asterisk
                                          , xK_equal
                                          ] ,
-          (f, m) <- [(W.greedyView, 0), (W.shift, shiftMask)]]
+          (f, m) <- [(W.view, 0), (W.shift, shiftMask)]]
+    ++
+    -- mod-{w,e,r}, Switch to physical/Xinerama screens 1, 2, or 3
+    -- mod-shift-{w,e,r}, Move client to screen 1, 2, or 3
+    [((m .|. modMask, key), screenWorkspace sc >>= flip whenJust (windows . f))
+          | (key, sc) <- zip [xK_w, xK_z, xK_m] [0..]
+          , (f, m) <- [(W.view, 0), (W.shift, shiftMask)]]

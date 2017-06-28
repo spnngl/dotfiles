@@ -65,6 +65,7 @@ aug wscleaning
     au!
     " remove trailing whitespaces and ^M chars
     au BufWritePre <buffer> :call setline(1,map(getline(1,"$"),'substitute(v:val,"\\s\\+$","","")'))
+    " au BufWritePre <buffer> :%s/\s\+$//
     " remove eol blank line(s)
     au BufWritePre * silent! :%s#\($\n\s*\)\+\%$##
 aug end

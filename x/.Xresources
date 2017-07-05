@@ -7,17 +7,15 @@ URxvt.resize-font.smaller: C-Down
 URxvt.resize-font.bigger: C-Up
 URxvt.iso14755: false
 URxvt.iso14755_52: false
-URxvt.saveLines: 20000
-
-! as login shell
-! URxvt*loginShell: true
+URxvt.saveLines: 10000
 
 ! font
-URxvt*font: xft:iosevka-regular:size=14:antialias=true:hinting=true,xft:Liberation Mono:antialias=true:hinting=true
+URxvt*font: xft:iosevka-light:size=12:antialias=true:hinting=true,xft:Liberation Mono:antialias=true:hinting=true
 !URxvt.letterSpace: -3
 
 ! terminal padding
 URxvt.internalBorder: 10
+URxvt.depth: 24
 
 ! make otf / ttf fonts look pretty.  does not matter if you are using a bitmap font.
 Xft.autohint: 0

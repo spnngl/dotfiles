@@ -41,3 +41,7 @@ sleep $WAIT_SMS
 # received
 RECEIVED=$(last_sms $MODEM)
 mmcli -s $RECEIVED
+
+# delete them...
+mmcli -m $MODEM --messaging-delete-sms=$TOSEND
+mmcli -m $MODEM --messaging-delete-sms=$RECEIVED

@@ -5,17 +5,103 @@
 utf8 = "on";
 
 
-#servers = (
-#  {
-#    address = "unix.chat";
-#    chatnet = "unixchat";
-#    port = "6697";
-#    use_ssl = "yes";
-#    ssl_verify = "yes";
-#    ssl_capath = "/etc/ssl/certs/";
-#    autoconnect = "yes";
-#  }
-#);
+servers = (
+  {
+    address = "irc.freenode.net";
+    chatnet = "Freenode";
+    port = "6697";
+    use_ssl = "yes";
+    use_tls = "yes";
+    tls_verify = "yes";
+    ssl_verify = "yes";
+    ssl_capath = "/etc/ssl/certs/";
+    autoconnect = "yes";
+  }
+);
+
+chatnets = {
+  DALnet = {
+    type      = "IRC";
+    max_kicks = "4";
+    max_msgs  = "20";
+    max_whois = "30";
+  };
+  EFNet = {
+    type      = "IRC";
+    max_kicks = "1";
+    max_msgs  = "4";
+    max_whois = "1";
+  };
+  EsperNet = {
+    type      = "IRC";
+    max_kicks = "1";
+    max_msgs  = "4";
+    max_whois = "1";
+  };
+  Freenode = {
+    type      = "IRC";
+    max_kicks = "1";
+    max_msgs  = "4";
+    max_whois = "1";
+    autosendcmd = "/msg nickserv identify <password> ;wait 5000";
+  };
+  GameSurge = {
+    type      = "IRC";
+    max_kicks = "1";
+    max_msgs  = "1";
+    max_whois = "1";
+  };
+  IRCnet = {
+    type      = "IRC";
+    max_kicks = "1";
+    max_msgs  = "1";
+    max_whois = "1";
+  };
+  IRCSource = {
+    type      = "IRC";
+    max_kicks = "1";
+    max_msgs  = "4";
+    max_whois = "1";
+  };
+  NetFuze = {
+    type      = "IRC";
+    max_kicks = "1";
+    max_msgs  = "1";
+    max_whois = "1";
+  };
+  OFTC = {
+    type      = "IRC";
+    max_kicks = "1";
+    max_msgs  = "1";
+    max_whois = "1";
+  };
+  QuakeNet = {
+    type      = "IRC";
+    max_kicks = "1";
+    max_msgs  = "1";
+    max_whois = "1";
+  };
+  Rizon = {
+    type      = "IRC";
+    max_kicks = "1";
+    max_msgs  = "1";
+    max_whois = "1";
+  };
+  SILC = {
+    type = "SILC";
+  };
+  Undernet = {
+    type      = "IRC";
+    max_kicks = "1";
+    max_msgs  = "1";
+    max_whois = "1";
+  };
+};
+
+channels = (
+  { name = "#gentoo";  chatnet = "Freenode";  autojoin = "Yes"; },
+  { name = "##linux";     chatnet = "Freenode";  autojoin = "Yes"; },
+);
 
 settings = {
   core = { real_name = "atbd"; user_name = "atbd"; nick = "atbd"; };
@@ -24,7 +110,7 @@ settings = {
     term_force_colors = "yes";
     indent = "12";
   };
-  "fe-common/core" = { theme = "nixers.theme"; bell_beeps = "no"; };
+  "fe-common/core" = { theme = "nixers.theme"; };
 };
 
 #logs = { };

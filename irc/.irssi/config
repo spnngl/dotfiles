@@ -16,6 +16,7 @@ servers = (
     ssl_verify = "yes";
     ssl_capath = "/etc/ssl/certs/";
     autoconnect = "yes";
+    password = "<password>"
   }
 );
 
@@ -43,7 +44,7 @@ chatnets = {
     max_kicks = "1";
     max_msgs  = "4";
     max_whois = "1";
-    autosendcmd = "/msg nickserv identify <password> ;wait 5000";
+    #autosendcmd = "/msg nickserv identify <password> ;wait 5000";
   };
   GameSurge = {
     type      = "IRC";
@@ -100,7 +101,9 @@ chatnets = {
 
 channels = (
   { name = "#gentoo";  chatnet = "Freenode";  autojoin = "Yes"; },
-  { name = "##linux";     chatnet = "Freenode";  autojoin = "Yes"; },
+  { name = "##linux";  chatnet = "Freenode";  autojoin = "Yes"; },
+  { name = "#python";  chatnet = "Freenode";  autojoin = "Yes"; },
+  { name = "#vim";     chatnet = "Freenode";  autojoin = "Yes"; },
 );
 
 settings = {
@@ -112,22 +115,3 @@ settings = {
   };
   "fe-common/core" = { theme = "nixers.theme"; };
 };
-
-#logs = { };
-#statusbar = {
-#  default = {
-#    window = {
-#      items = {
-#        barstart = { priority = "100"; };
-#        user = { };
-#        window = { };
-#        window_empty = { };
-#        lag = { priority = "-1"; };
-#        act = { priority = "10"; };
-#        more = { priority = "-1"; alignment = "right"; };
-#        barend = { priority = "100"; alignment = "right"; };
-#      };
-#    };
-#  };
-#};
-#chatnets = { unixchat = { type = "IRC"; }; };

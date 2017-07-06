@@ -46,10 +46,16 @@ fi
 
 # desktop wallpaper
 #sh $HOME/bin/.fehbg &
-xsetroot -solid '#222222'
-
+xsetroot -solid '#000000'
 # cursor setting
 xsetroot -cursor_name left_ptr
+
+# xinerama setting
+xrandr --output "eDP1" --mode "1920x1080"
+xrandr --output "DP1" --mode "1920x1080"
+
+syndaemon -i 0.5 -t -K -R -d
+
 # hide x11 cursor
 #unclutter &
 

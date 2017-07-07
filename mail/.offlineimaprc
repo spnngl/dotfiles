@@ -1,0 +1,26 @@
+[general]
+ui = ttyui
+accounts = moi
+
+[Account moi]
+localrepository = moi-local
+remoterepository = moi-remote
+status_backend = sqlite
+#postsynchook = notmuch new
+# sync only mailboxes that changed
+quick = -1
+
+[Repository moi-local]
+type = Maildir
+localfolders = ~/mail/
+
+[Repository moi-remote]
+type = Gmail
+remoteuser = coucou@moi.tv
+remotepass = <password>
+#remotepassfile = ~/Password.IMAP.Account1
+realdelete = yes
+usecompression = yes
+maxconnections = 3
+ssl = yes
+sslcacertfile = /etc/ssl/certs/ca-certificates.crt

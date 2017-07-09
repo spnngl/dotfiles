@@ -25,7 +25,7 @@ main = xmonad =<< statusBar myBar myPP toggleStrutsKey (ewmh $ myConfig)
 
 -- Configs
 myConfig = defaultConfig { modMask = mod4Mask,
-                           terminal = "urxvtc",
+                           terminal = "/usr/bin/urxvtc",
                            workspaces = myWorkspaces,
                            layoutHook = myLayoutHook,
                            manageHook = myManageHook,
@@ -47,7 +47,7 @@ myWorkspaces :: [String]
 myWorkspaces = [myws1, myws2, myws3, myws4]
 
 -- Layouts
-myLayoutHook = avoidStruts $ smartBorders $ ResizableTall 1 (5/100) (1/2) []
+myLayoutHook = avoidStruts $ smartBorders $ ResizableTall 1 (1/10) (1/2) []
 
 -- Manage
 myManageHook = composeAll [ isFullscreen            --> doFullFloat,

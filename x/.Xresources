@@ -11,10 +11,14 @@ URxvt.resize-font.bigger: C-Up
 URxvt.iso14755: false
 URxvt.iso14755_52: false
 URxvt.saveLines: 10000
+URxvt.buffered: true
 
 ! font
-URxvt*font: xft:iosevka-light:size=10:antialias=true:hinting=true,xft:Liberation Mono:antialias=true:hinting=true
 ! URxvt.letterSpace: -4
+URxvt.font:                 xft:iosevka-regular:size=12:antialias=true:hinting=true
+URxvt.boldFont:             xft:iosevka-bold:size=12:antialias=true:hinting=true
+URxvt.italicFont:           xft:iosevka-italic:size=12:antialias=true:hinting=true
+URxvt.boldItalicFont:       xft:iosevka-bolditalic:size=12:antialias=true:hinting=true
 
 ! terminal padding
 URxvt.internalBorder: 10

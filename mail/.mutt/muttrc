@@ -75,9 +75,3 @@ set certificate_file        = "$HOME/.mutt/certificates"
 
 # address book
 # source ~/.aliases
-
-# Folder settings (local use)
-#set spoolfile               = ~/var/mail/inbox
-#set folder                  = ~/var/mail
-#set postponed               = ~/var/mail/brouillons
-#set record                  = ~/var/mail/sent

@@ -104,6 +104,7 @@ channels = (
   { name = "##linux";  chatnet = "Freenode";  autojoin = "Yes"; },
   { name = "#python";  chatnet = "Freenode";  autojoin = "Yes"; },
   { name = "#vim";     chatnet = "Freenode";  autojoin = "Yes"; },
+  { name = "#haskell"; chatnet = "Freenode";  autojoin = "Yes"; },
 );
 
 settings = {

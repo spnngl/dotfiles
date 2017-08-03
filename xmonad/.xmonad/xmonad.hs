@@ -83,7 +83,7 @@ myKeys :: XConfig Layout -> M.Map (KeyMask, KeySym) (X ())
 myKeys conf@(XConfig {XMonad.modMask = modMask}) = M.fromList $
     -- launching apps
     [ ((modMask, xK_Return), safeSpawn (XMonad.terminal conf) [])
-    , ((modMask,                 xK_d     ), safeSpawn "dmenu_run" ["-i"])
+    , ((modMask,                 xK_d   ), safeSpawn "dmenu_run" ["-i"])
     -- Kill windows
     , ((modMask, xK_x     ), kill)
     -- layouts

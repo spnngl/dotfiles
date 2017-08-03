@@ -1,0 +1,26 @@
+[user]
+	name = unknow
+	email = unknow@mail.com
+[branch]
+	autosetuprebase = always
+[alias]
+    d = diff
+    st = status -s
+    ci = commit
+    co = checkout
+    b = branch
+    last = log -1 HEAD
+[core]
+    editor = vim
+    autocrlf = input
+    whitespace = trailing-space
+[color]
+    ui = true
+#[diff]
+#    external = vimdiff
+[difftool]
+	prompt = false
+[diff]
+	tool = vimdiff
+[merge]
+	tool = vimdiff

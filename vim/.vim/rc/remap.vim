@@ -1,3 +1,9 @@
+" Do not show stupid q: window
+map q: :q
+
+" Allow saving of files as sudo when I forgot to start vim using sudo.
+cmap w!! w !sudo tee > /dev/null %
+
 " BÉPO
 " ------------------------------
 " {W} -> [É]

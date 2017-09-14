@@ -19,12 +19,17 @@ set path=/usr/include,/usr/local/include,/usr/local/lib
 
 " divers
 set modelines=0
-set number
-set cursorline
-set incsearch hlsearch
+set number                      " show line number
+set ruler                       " show cursor position
+set backspace=indent,eol,start  " powerful backspace
+set showmode
+set splitright splitbelow
+set incsearch                   " shows the match while typing
+set hlsearch                    " highlight found searches
+set autoread                    " automatic read if changed file
+set autowrite                   " automatic write befor :next, :make etc
 set encoding=utf-8
 set synmaxcol=256
-set lazyredraw
 set shell=/bin/mksh
 set showcmd "showmatch
 set wildmenu
@@ -33,9 +38,20 @@ set wildignore+=*.pdf,*.psd
 set wildignore+=*.bmp,*.gif,*.ico,*.jpg,*.png,*.tiff
 set history=2047
 set hidden
+set ttyfast
+set lazyredraw
+
+set fileformats=unix,dos,mac    " prefer Unix over Windows over OS 9 formats
 
 " crypt
 setlocal cm=blowfish2
+
+" make vim to handle long lines nicely.
+set wrap
+set textwidth=79
+set formatoptions=qrn1
+"set colorcolumn=79
+"hi ColorColumn ctermbg=lightgrey
 
 " undo & backup & swap
 set undofile undodir=~/.vim/undo undolevels=1000 "undoreload=1000
@@ -47,7 +63,13 @@ set ignorecase smartcase infercase
 
 " indent options "
 set tabstop=4 shiftwidth=4 expandtab
+set shiftround
 set autoindent
+set smarttab
+
+" completion
+set complete=.,w,b,u,t,i
+set completeopt=menuone,preview,longest
 
 " folding "
 "set foldmethod=indent
@@ -57,15 +79,12 @@ set autoindent
 " colors
 colorscheme fahrenheit
 syntax on
-set colorcolumn=90
-"hi ColorColumn ctermbg=lightgrey
 
 " (au)commands
 aug wscleaning
     au!
-    " remove trailing whitespaces and ^M chars
-    au BufWritePre <buffer> :call setline(1,map(getline(1,"$"),'substitute(v:val,"\\s\\+$","","")'))
-    " au BufWritePre <buffer> :%s/\s\+$//
+    " remove trailing whitespaces
+    au BufWritePre <buffer> silent! :%s/\s\+$//
     " remove eol blank line(s)
     au BufWritePre * silent! :%s#\($\n\s*\)\+\%$##
 aug end
@@ -89,6 +108,12 @@ aug divers
        \ if line("'\"") > 0 && line("'\"") <= line("$") |
        \ exe "normal g`\"" |
        \ endif
+aug end
+
+aug cursorhighlight
+    au!
+    au WinLeave * set nocursorline nocursorcolumn
+    au WinEnter * set cursorline cursorcolumn
 aug end
 
 aug latex

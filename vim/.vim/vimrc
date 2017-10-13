@@ -17,6 +17,20 @@ source $HOME/.vim/rc/plugin.vim
 " auto-complete c
 set path=/usr/include,/usr/local/include,/usr/local/lib
 
+" cscope
+set cscopeprg=/usr/bin/cscope
+set cscoperelative
+set cscopetag
+"set cst
+set csto=0
+set nocscopeverbose
+set cscopequickfix=s-,c-,d-,i-,t-,e-
+
+let s:cspfile = "cscope.out"
+if filereadable(s:cspfile)
+    exec "cscope add " . s:cspfile
+endif
+
 " divers
 set modelines=0
 set number                      " show line number
@@ -84,7 +98,7 @@ syntax on
 aug wscleaning
     au!
     " remove trailing whitespaces
-    au BufWritePre <buffer> silent! :%s/\s\+$//
+    au BufWritePre * silent! :%s/\s\+$//
     " remove eol blank line(s)
     au BufWritePre * silent! :%s#\($\n\s*\)\+\%$##
 aug end

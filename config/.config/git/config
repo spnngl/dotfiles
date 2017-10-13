@@ -1,12 +1,34 @@
-
 [user]
-	name = Anthony Delannoy
-	email = xy@atbd.me
+	name = unk now
+	email = unk@now.com
+    #signingKey =
+[commit]
+    gpgSign = false
+    template = "~/.config/git/msg"
+[rerere]
+    enabled = true
+    autoUpdate = true
+[status]
+    relativePaths = false
+    branch = true
+[branch]
+	autosetuprebase = always
+[alias]
+    d = diff
+    st = status --short
+    ci = commit
+    co = checkout
+    b = branch
+    last = log -1 HEAD
 [core]
     editor = vim
     autocrlf = input
     whitespace = trailing-space
 [color]
     ui = true
-#[diff]
-#    external = vimdiff
+[difftool]
+	prompt = false
+[diff]
+	tool = vimdiff
+[merge]
+	tool = vimdiff

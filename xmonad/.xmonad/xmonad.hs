@@ -12,12 +12,14 @@ import qualified Data.Map as M
 import XMonad.Layout.Fullscreen (fullscreenEventHook)
 import XMonad.Layout.NoBorders (smartBorders)
 --import XMonad.Layout.MultiToggle
-import XMonad.Layout.ResizableTile
+import XMonad.Layout.ResizableTile (ResizableTall(..), MirrorResize(..))
 -- hooks
 import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.ManageDocks (avoidStruts, docksEventHook)
-import XMonad.Hooks.ManageHelpers
+import XMonad.Hooks.ManageHelpers (doFullFloat, isFullscreen)
 import XMonad.Hooks.EwmhDesktops (ewmh)
+-- xmonad-contrib
+import XMonad.Actions.CycleWS (swapNextScreen, nextWS, prevWS)
 
 -- Main process
 main :: IO()
@@ -47,7 +49,7 @@ myWorkspaces :: [String]
 myWorkspaces = [myws1, myws2, myws3, myws4]
 
 -- Layouts
-myLayoutHook = avoidStruts $ smartBorders $ ResizableTall 1 (1/10) (1/2) []
+myLayoutHook = avoidStruts $ smartBorders $ ResizableTall 1 (5/100) (1/2) []
 
 -- Manage
 myManageHook = composeAll [ isFullscreen            --> doFullFloat,
@@ -97,8 +99,11 @@ myKeys conf@(XConfig {XMonad.modMask = modMask}) = M.fromList $
     , ((modMask,               xK_t     ), windows W.focusDown)
     , ((modMask,               xK_s     ), windows W.focusUp)
     -- swapping
-    , ((modMask .|. shiftMask, xK_j     ), windows W.swapDown  )
-    , ((modMask .|. shiftMask, xK_k     ), windows W.swapUp    )
+    , ((modMask .|. shiftMask, xK_j     ), windows W.swapDown)
+    , ((modMask .|. shiftMask, xK_k     ), windows W.swapUp)
+    , ((modMask,               xK_l     ), swapNextScreen)
+    , ((modMask,               xK_c     ), prevWS)
+    , ((modMask,               xK_r     ), nextWS)
     -- increase or decrease number of windows in the master area
     , ((modMask              , xK_comma ), sendMessage (IncMasterN 1))
     , ((modMask              , xK_period), sendMessage (IncMasterN (-1)))
@@ -109,16 +114,17 @@ myKeys conf@(XConfig {XMonad.modMask = modMask}) = M.fromList $
     , ((modMask .|. shiftMask, xK_s ), sendMessage MirrorExpand)
     -- restart
     , ((modMask              , xK_q     ), spawn "xmonad --recompile && xmonad --restart")
+    , ((modMask .|. shiftMask, xK_l     ), spawn "slock")
     ]
     ++
     [((m .|. modMask, k), windows $ f i)
-        | (i, k) <- zip (workspaces conf)[ xK_quotedbl
-                                         , xK_guillemotleft
-                                         , xK_guillemotright
-                                         , xK_parenleft
-                                         , xK_parenright
-                                         , xK_at
-                                         , xK_plus
+        | (i, k) <- zip (workspaces conf)[ -- [ xK_quotedbl
+                                         -- , xK_guillemotleft
+                                         -- , xK_guillemotright
+                                         -- , xK_parenleft
+                                         -- , xK_parenright
+                                         -- , xK_at
+                                         xK_plus
                                          , xK_minus
                                          , xK_slash
                                          , xK_asterisk

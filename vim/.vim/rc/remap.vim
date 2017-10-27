@@ -18,7 +18,7 @@ onoremap iÉ iW
 " Pour faciliter les manipulations de fenêtres, {W} -> ctrl + w :
 noremap w <C-w>
 noremap W <C-w><C-w>
- 
+
 " [HJKL] -> {CTSR}
 noremap c h
 noremap r l
@@ -28,7 +28,7 @@ noremap C H
 noremap R L
 noremap T J
 noremap S K
- 
+
 " {HJKL} <- [CTSR]
 " {J} = « Jusqu'à »            (j = suivant, J = précédant)
 noremap j t
@@ -45,7 +45,7 @@ noremap K S
 " Corollaire : correction orthographique
 noremap ]k ]s
 noremap [k [s
- 
+
 " Désambiguation de {g}
 " —————————————————————
 " ligne écran précédente / suivante (à l'intérieur d'une phrase)
@@ -59,11 +59,11 @@ noremap gB :exe "silent! tabfirst"<cr>
 noremap gÉ :exe "silent! tablast"<cr>
 " optionnel : {g"} pour aller au début de la ligne écran
 noremap g" g0
- 
+
 " <> en direct
 noremap « <
 noremap » >
- 
+
 " gestion des fenêtres
 noremap wt <C-w>j
 noremap ws <C-w>k
@@ -100,3 +100,8 @@ nnoremap <leader>n :noh<esc>
 
 " save session
 nnoremap <leader>m :mksession<esc>
+
+" fzf shortcuts
+nmap <C-p> :Files<cr>
+nmap <C-b> :Buffers<cr>
+nmap <leader>j :Tags<cr>

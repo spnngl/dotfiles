@@ -3,41 +3,45 @@
 # ╹ ╹┗━┛ ╹  ╹ ╹┗╸┗━╸
 
 # accounts (do not upload)
-macro index <F5> '<sync-mailbox><enter-command>source $HOME/.mutt/accounts/d1<enter><change-folder>!<enter>'
-macro index <F6> '<sync-mailbox><enter-command>source $HOME/.mutt/accounts/a2<enter><change-folder>!<enter>'
-macro index <F7> '<sync-mailbox><enter-command>source $HOME/.mutt/accounts/xy<enter><change-folder>!<enter>'
+macro index <F1> '<sync-mailbox><enter-command>source $HOME/.mutt/accounts/xy<enter><change-folder>!<enter>'
+macro index <F2> '<sync-mailbox><enter-command>source $HOME/.mutt/accounts/a2<enter><change-folder>!<enter>'
+macro index <F3> '<sync-mailbox><enter-command>source $HOME/.mutt/accounts/tvty<enter><change-folder>!<enter>'
+macro index <F4> '<sync-mailbox><enter-command>source $HOME/.mutt/accounts/spnngl<enter><change-folder>!<enter>'
 
 # default
-source "gpg -d $HOME/.mutt/password.gpg |"
-source $HOME/.mutt/accounts/xy
+source $HOME/.mutt/accounts/spnngl
 
 # hooks
-folder-hook 'd1' 'source $HOME/.mutt/accounts/d1'
+folder-hook 'xy' 'source $HOME/.mutt/accounts/xy'
 folder-hook 'a2' 'source $HOME/.mutt/accounts/a2'
-folder-hook 'n7' 'source $HOME/.mutt/accounts/n7'
+folder-hook 'tvty' 'source $HOME/.mutt/accounts/tvty'
+folder-hook 'spnngl' 'source $HOME/.mutt/accounts/spnngl'
 
 # others
-#source $HOME/.mutt/sidebar
+# source $HOME/.mutt/sidebar
 source $HOME/.mutt/colors
 source $HOME/.mutt/bindings
 
-#gpg settings
+# gpg settings
 source $HOME/.mutt/gpg.rc
 
 set pgp_use_gpg_agent       = yes
-set pgp_sign_as             = BBB1FE56
+set pgp_sign_as             = 3F9298D4
 set pgp_timeout             = 3600
 set pgp_auto_decode
 set crypt_verify_sig        = yes
 set crypt_autosign          = yes
-#set crypt_autoencrypt       =yes
+# set crypt_autoencrypt       =yes
 set crypt_replyencrypt      = yes
-#set crypt_replysignencrypted= yes
+# set crypt_replysignencrypted= yes
 
 ### ~/.muttrc ###
+set delete                  = yes
+set user_agent              = no
 set dsn_notify              = "failure,delay,success"
 set editor                  = "vim -c 'set syntax=mail ft=mail enc=utf-8'"
-#set pager                   = /usr/bin/less
+set pager                   = /usr/bin/less
+set charset                 = 'utf-8'
 set send_charset            = 'utf-8'
 set sort                    = threads
 set sort_aux                = reverse-last-date-received
@@ -75,3 +79,14 @@ set certificate_file        = "$HOME/.mutt/certificates"
 
 # address book
 # source ~/.aliases
+
+# macro notmuch
+macro index <F8> \
+     "<enter-command>unset wait_key<enter><shell-escape>notmuch-mutt --prompt search<enter><change-folder-readonly>`echo ${XDG_CACHE_HOME:-$HOME/.cache}/notmuch/mutt/results`<enter>" \
+     "notmuch: search mail"
+macro index <F9> \
+     "<enter-command>unset wait_key<enter><pipe-message>notmuch-mutt thread<enter><change-folder-readonly>`echo ${XDG_CACHE_HOME:-$HOME/.cache}/notmuch/mutt/results`<enter><enter-command>set wait_key<enter>" \
+     "notmuch: reconstruct thread"
+macro index <F6> \
+     "<enter-command>unset wait_key<enter><pipe-message>notmuch-mutt tag -inbox<enter>" \
+     "notmuch: remove message from inbox"

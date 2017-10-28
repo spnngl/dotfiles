@@ -37,3 +37,11 @@ alias yt='mpv $(xclip -o -selection clipboard)'
 alias ytnv='mpv --no-video $(xclip -o -selection clipboard)'
 alias serie='mpv --sub-file *.srt *.{mkv,mp4}'
 alias bfmtv='mpv --no-resume-playback https://www.bfmtv.com/mediaplayer/live-video/'
+
+if [ ! "$(pidof gpg-agent)" ]; then
+    gpg-agent --daemon --enable-ssh-support
+fi
+
+if [ -S $(gpgconf --list-dirs agent-ssh-socket) ]; then
+  export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
+fi

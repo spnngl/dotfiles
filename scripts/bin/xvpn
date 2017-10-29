@@ -1,0 +1,9 @@
+#!/bin/bash
+
+VCON=$(nmcli c show --active | grep vpn | wc -l);
+
+if [[ $VCON != 0 ]]; then
+    echo -e "\ue0a2"
+else
+    echo ""
+fi

@@ -13,7 +13,7 @@ Config {
    -- layout
    , sepChar =  "%"   -- delineator between plugin names and straight text
    , alignSep = "}{"  -- separator between left-right alignment
-   , template = "%date% | %battery% | %default:Master%| %multicpu% | %coretemp% | %memory% | %dynnetwork% }{ %StdinReader% "
+   , template = "%date% -> %battery% -> %default:Master%-> %multicpu% -> %coretemp% -> %memory% -> %vpn% %dynnetwork% }{ %StdinReader% "
 
    -- general behavior
    , lowerOnStart =     True    -- send to bottom of window stack on start
@@ -47,6 +47,8 @@ Config {
                              , "--normal"   , "darkorange"
                              , "--high"     , "green"
                              ] 10
+
+        , Run Com "./bin/xvpn" [""] "vpn" 600
 
         -- cpu activity monitor
         , Run MultiCpu       [ "--template" , "Cpu: <total>%" -- <total0>%|<total1>%|<total0>%|<total1>%"

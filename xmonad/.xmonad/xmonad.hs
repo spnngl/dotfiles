@@ -32,7 +32,7 @@ myConfig = defaultConfig { modMask = mod4Mask,
                            layoutHook = myLayoutHook,
                            manageHook = myManageHook,
                            handleEventHook = myEventHook,
-                           borderWidth = 2,
+                           borderWidth = 1,
                            normalBorderColor = "#2b303b",
                            focusedBorderColor = "#bf616a",
                            focusFollowsMouse = False,
@@ -40,24 +40,17 @@ myConfig = defaultConfig { modMask = mod4Mask,
                          }
 
 -- Workspaces
-myws1 = "Main"
-myws2 = "Code"
-myws3 = "Web"
-myws4 = "Random"
-
 myWorkspaces :: [String]
-myWorkspaces = [myws1, myws2, myws3, myws4]
+myWorkspaces = map show [0..5]
 
 -- Layouts
 myLayoutHook = avoidStruts $ smartBorders $ ResizableTall 1 (5/100) (1/2) []
 
 -- Manage
-myManageHook = composeAll [ isFullscreen            --> doFullFloat,
-                            className =? "Firefox"  --> doShift myws3,
-                            className =? "mpv"      --> doFloat,
-                            className =? "Slack"    --> doFloat,
-                            className =? "Slack"    --> doShift myws1,
-                            className =? "dosbox"   --> doShift myws4
+myManageHook = composeAll [ isFullscreen            --> doFullFloat
+                          , className =? "Firefox"  --> doShift (myWorkspaces !! 3)
+                          , className =? "mpv"      --> doFloat
+                          , className =? "spotify"  --> doFloat
                           ]
 
 -- Event Hooks
@@ -129,6 +122,7 @@ myKeys conf@(XConfig {XMonad.modMask = modMask}) = M.fromList $
                                          , xK_slash
                                          , xK_asterisk
                                          , xK_equal
+                                         , xK_percent
                                          ] ,
           (f, m) <- [(W.view, 0), (W.shift, shiftMask)]]
     ++

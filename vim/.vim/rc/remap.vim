@@ -63,6 +63,8 @@ noremap g" g0
 " <> en direct
 noremap « <
 noremap » >
+inoremap « <
+inoremap » >
 
 " gestion des fenêtres
 noremap wt <C-w>j

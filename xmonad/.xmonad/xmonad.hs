@@ -48,7 +48,7 @@ myLayoutHook = avoidStruts $ smartBorders $ ResizableTall 1 (5/100) (1/2) []
 
 -- Manage
 myManageHook = composeAll [ isFullscreen            --> doFullFloat
-                          , className =? "Firefox"  --> doShift (myWorkspaces !! 3)
+                          , className =? "Firefox"  --> doShift (myWorkspaces !! 2)
                           , className =? "mpv"      --> doFloat
                           , className =? "spotify"  --> doFloat
                           ]
@@ -108,6 +108,8 @@ myKeys conf@(XConfig {XMonad.modMask = modMask}) = M.fromList $
     -- restart
     , ((modMask              , xK_q     ), spawn "xmonad --recompile && xmonad --restart")
     , ((modMask .|. shiftMask, xK_l     ), spawn "slock")
+    , ((modMask              , xK_y     ), spawn "mpv $(xclip -o -selection clipboard) 1>/dev/null 2>&1")
+    , ((modMask              , xK_p     ), spawn "~/./tmp/popcorn/Popcorn-Time &")
     ]
     ++
     [((m .|. modMask, k), windows $ f i)

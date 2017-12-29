@@ -13,7 +13,7 @@ Config {
    -- layout
    , sepChar =  "%"   -- delineator between plugin names and straight text
    , alignSep = "}{"  -- separator between left-right alignment
-   , template = "%date% -> %battery% -> %default:Master%-> %multicpu% -> %coretemp% -> %memory% -> %vpn% %dynnetwork% }{ %StdinReader% "
+   , template = "%date% -> %battery% -> %default:Master%-> %multicpu% -> %coretemp% -> %memory% -> %vpn%%dynnetwork% }{ %StdinReader% "
 
    -- general behavior
    , lowerOnStart =     True    -- send to bottom of window stack on start
@@ -75,7 +75,7 @@ Config {
                              , "--low"      , "green"
                              , "--normal"   , "darkorange"
                              , "--high"     , "red"
-                             ] 10
+                             ] 20
 
         -- battery monitor
         , Run Battery        [ "--template" , "Batt: <acstatus>"
@@ -100,7 +100,7 @@ Config {
 
         -- time and date indicator
         --   (%F = y-m-d date, %a = day of week, %T = h:m:s time)
-        , Run Date           "%F (%a) %T" "date" 10
+        , Run Date           "%F (%a) %H:%M" "date" 50
         -- stdinreader, avoid xmonad freeze
         , Run StdinReader
         ]

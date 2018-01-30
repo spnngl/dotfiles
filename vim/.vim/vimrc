@@ -101,6 +101,8 @@ aug wscleaning
     au BufWritePre * silent! :%s/\s\+$//
     " remove eol blank line(s)
     au BufWritePre * silent! :%s#\($\n\s*\)\+\%$##
+    " remove windows eol
+    au BufWritePre * silent! :%s///g
 aug end
 
 " spelling check
@@ -130,10 +132,14 @@ aug cursorhighlight
     au WinEnter * set cursorline cursorcolumn
 aug end
 
-aug latex
+aug filetypeGroup
     au!
     au BufNewFile,BufRead *.cls set filetype=tex
+    au BufNewFile,BufRead *.cc set filetype=cpp
 aug end
+
+" remove ms eol
+com! Nom :%s///g
 
 " remove trailing white space
 com! Nows :%s/\s\+$//

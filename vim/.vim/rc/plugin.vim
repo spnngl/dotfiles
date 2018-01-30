@@ -22,7 +22,11 @@ set noshowmode
 "Bundle 'zah/nim.vim'
 "Bundle 'baabelfish/nvim-nim'
 Plugin 'junegunn/fzf.vim'
+
 Plugin 'w0rp/ale'
+let g:ale_linters_aliases = {'cc': 'cpp'}
+let g:ale_lint_on_text_changed = 'never'
+let g:ale_lint_on_enter = 0
 
 call vundle#end()
 filetype plugin indent on

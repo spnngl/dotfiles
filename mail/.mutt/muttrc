@@ -45,7 +45,7 @@ set charset                 = 'utf-8'
 set send_charset            = 'utf-8'
 set sort                    = threads
 set sort_aux                = reverse-last-date-received
-set date_format             = "%d/%m"
+set date_format             = "%d/%m/%y"
 set index_format            = "%2C | %Z [%d] %-30.30F (%-4.4c) %s"
 set mailcap_path            = $HOME/.mutt/mailcap
 auto_view text/html

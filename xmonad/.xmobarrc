@@ -89,9 +89,9 @@ Config {
                                        -- discharging status
                                        , "-o"	, "<left>% (<timeleft>)"
                                        -- AC "on" status
-                                       , "-O"	, "<fc=#dAA520>Charging</fc>"
+                                       , "-O"	, "<left>% (<timeleft>)"
                                        -- charged status
-                                       , "-i"	, "<fc=#00D000>Charged</fc>"
+                                       , "-i"	, "<left>% (<timeleft>)"
                              ] 50
 
         , Run Volume "default" "Master"

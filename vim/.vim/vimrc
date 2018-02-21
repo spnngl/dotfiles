@@ -44,7 +44,7 @@ set autoread                    " automatic read if changed file
 set autowrite                   " automatic write befor :next, :make etc
 set encoding=utf-8
 set synmaxcol=256
-set shell=/bin/mksh
+set shell=/bin/bash
 set showcmd "showmatch
 set wildmenu
 set wildignore=*.pyc,*.o

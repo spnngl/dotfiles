@@ -3,8 +3,8 @@
 	email = unk@now.com
     #signingKey =
 [commit]
-    gpgSign = false
-    template = "~/.config/git/msg"
+	gpgsign = false
+    #template = "~/.config/git/msg"
 [rerere]
     enabled = true
     autoUpdate = true
@@ -32,3 +32,6 @@
 	tool = vimdiff
 [merge]
 	tool = vimdiff
+    ff   = no
+[gpg]
+	program = /usr/bin/gpg

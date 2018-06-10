@@ -2,7 +2,7 @@
 
 # basic colors ---------------------------------------------------------
 # color object      fg              bg
-color normal        color255        default
+color normal        white           default
 color error         color160        red
 color tilde         color235        default
 color message       white           default

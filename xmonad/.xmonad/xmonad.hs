@@ -16,7 +16,7 @@ import XMonad.Layout.ResizableTile (ResizableTall(..), MirrorResize(..))
 -- hooks
 import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.ManageDocks (avoidStruts, docksEventHook)
-import XMonad.Hooks.ManageHelpers (doFullFloat, isFullscreen)
+import XMonad.Hooks.ManageHelpers (doFullFloat, isFullscreen, doCenterFloat)
 import XMonad.Hooks.EwmhDesktops (ewmh)
 -- xmonad-contrib
 import XMonad.Actions.CycleWS (swapNextScreen, nextWS, prevWS)
@@ -49,8 +49,9 @@ myLayoutHook = avoidStruts $ smartBorders $ ResizableTall 1 (5/100) (1/2) []
 -- Manage
 myManageHook = composeAll [ isFullscreen            --> doFullFloat
                           , className =? "Firefox"  --> doShift (myWorkspaces !! 2)
-                          , className =? "mpv"      --> doFloat
-                          , className =? "spotify"  --> doFloat
+                          , className =? "mpv"      --> doCenterFloat
+                          , className =? "ffplay"   --> doCenterFloat
+                          , className =? "spotify"  --> doCenterFloat
                           ]
 
 -- Event Hooks
@@ -107,6 +108,7 @@ myKeys conf@(XConfig {XMonad.modMask = modMask}) = M.fromList $
     , ((modMask .|. shiftMask, xK_s ), sendMessage MirrorExpand)
     -- restart
     , ((modMask              , xK_q     ), spawn "xmonad --recompile && xmonad --restart")
+    , ((modMask .|. shiftMask, xK_q     ), spawn "xrdb -Ietc/x/xresources/ ~/.Xresources && xmonad --restart")
     , ((modMask .|. shiftMask, xK_l     ), spawn "slock")
     , ((modMask              , xK_y     ), spawn "mpv $(xclip -o -selection clipboard) 1>/dev/null 2>&1")
     , ((modMask              , xK_p     ), spawn "~/./tmp/popcorn/Popcorn-Time &")

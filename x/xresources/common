@@ -48,6 +48,3 @@ URxvt.keysym.C-8: command:\033]11;#ffffff\007
 
 ! change to dark gray background
 URxvt.keysym.C-9: command:\033]11;#222222\007
-
-! colors
-#include "/home/atbd/.config/colors/sepia"

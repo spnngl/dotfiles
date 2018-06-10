@@ -7,25 +7,27 @@ endif
 
 let g:colors_name = "genericdc-light"
 
-hi Normal       ctermfg=235 ctermbg=255
-hi Special      ctermfg=234 ctermbg=NONE
-hi Comment      ctermfg=247 ctermbg=NONE cterm=italic
-hi Constant     ctermfg=237 ctermbg=NONE
-hi String       ctermfg=68  ctermbg=NONE
-hi Number       ctermfg=196 ctermbg=NONE
-hi htmlTagName  ctermfg=235 ctermbg=NONE
-hi Identifier   ctermfg=239 ctermbg=NONE
-hi Statement    ctermfg=242 ctermbg=NONE cterm=NONE
-hi Boolean      ctermfg=242 ctermbg=NONE cterm=NONE
-hi PreProc      ctermfg=244 ctermbg=NONE
-hi Type         ctermfg=239 ctermbg=NONE
-hi Function     ctermfg=240 ctermbg=NONE cterm=italic
-hi Repeat       ctermfg=244 ctermbg=NONE
-hi Operator     ctermfg=239 ctermbg=NONE
-hi Error        ctermfg=9   ctermbg=NONE
-hi TODO         ctermfg=135 ctermbg=NONE cterm=italic
-hi linenr       ctermfg=250 ctermbg=255
-hi CursorLineNR ctermfg=246 ctermbg=234
+hi Normal       ctermfg=235  ctermbg=NONE
+hi Special      ctermfg=234  ctermbg=NONE
+hi Comment      ctermfg=247  ctermbg=NONE cterm=italic
+hi Constant     ctermfg=237  ctermbg=NONE
+hi String       ctermfg=68   ctermbg=NONE
+hi Number       ctermfg=196  ctermbg=NONE
+hi htmlTagName  ctermfg=235  ctermbg=NONE
+hi Identifier   ctermfg=239  ctermbg=NONE
+hi Statement    ctermfg=242  ctermbg=NONE cterm=NONE
+hi Boolean      ctermfg=242  ctermbg=NONE cterm=NONE
+hi PreProc      ctermfg=244  ctermbg=NONE
+hi Type         ctermfg=239  ctermbg=NONE
+hi Function     ctermfg=240  ctermbg=NONE cterm=italic
+hi Repeat       ctermfg=244  ctermbg=NONE
+hi Operator     ctermfg=239  ctermbg=NONE
+hi Error        ctermfg=9    ctermbg=NONE
+hi TODO         ctermfg=135  ctermbg=NONE cterm=italic
+hi linenr       ctermfg=240  ctermbg=NONE
+hi CursorLineNR ctermfg=246  ctermbg=234
+hi ColorColumn  ctermbg=none ctermfg=235  cterm=NONE
+hi CursorColumn ctermbg=255 ctermfg=235 cterm=NONE
 
 hi Visual          ctermfg=255 ctermbg=241 cterm=italic
 hi SpecialKey      ctermfg=255 ctermbg=NONE
@@ -39,27 +41,27 @@ hi ColorColumn             ctermbg=253
 
 match ExtraWhitespace /\s\+$/
 
-hi link character	      constant
-hi link number	        constant
-hi link boolean	        constant
-hi link Float		        Number
-hi link Conditional	    Repeat
-hi link Label		        Statement
-hi link Keyword	        Statement
-hi link Exception	      Statement
-hi link Include	        PreProc
-hi link Define	        PreProc
-hi link Macro		        PreProc
-hi link PreCondit	      PreProc
-hi link StorageClass	  Type
-hi link Structure	      Type
-hi link Typedef	        Type
-hi link htmlTag	        Special
-hi link Tag		          Special
-hi link SpecialChar	    Special
-hi link Delimiter	      Special
+hi link character       constant
+hi link number          constant
+hi link boolean         constant
+hi link Float           Number
+hi link Conditional     Repeat
+hi link Label           Statement
+hi link Keyword         Statement
+hi link Exception       Statement
+hi link Include         PreProc
+hi link Define          PreProc
+hi link Macro           PreProc
+hi link PreCondit       PreProc
+hi link StorageClass    Type
+hi link Structure       Type
+hi link Typedef         Type
+hi link htmlTag         Special
+hi link Tag             Special
+hi link SpecialChar     Special
+hi link Delimiter       Special
 hi link SpecialComment  Special
-hi link Debug		        Special
+hi link Debug           Special
 
 " sytnax specific
 

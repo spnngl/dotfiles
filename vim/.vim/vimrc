@@ -91,7 +91,10 @@ set completeopt=menuone,preview,longest
 "nnoremap <space> za
 
 " colors
-colorscheme fahrenheit
+" dark
+" colorscheme fahrenheit
+" light
+colorscheme genericdc-light
 syntax on
 
 " (au)commands

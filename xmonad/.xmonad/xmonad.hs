@@ -1,17 +1,13 @@
 -- Imports
 import XMonad
---import System.Exit
 import XMonad.Util.Run (safeSpawn)
 import Graphics.X11.ExtraTypes.XF86
 import qualified XMonad.StackSet as W
 import qualified Data.Map as M
---import Data.List
 -- layouts
---import XMonad.Layout.Spacing
---import XMonad.Layout.Grid
+import XMonad.Layout.Spacing (smartSpacingWithEdge)
 import XMonad.Layout.Fullscreen (fullscreenEventHook)
 import XMonad.Layout.NoBorders (smartBorders)
---import XMonad.Layout.MultiToggle
 import XMonad.Layout.ResizableTile (ResizableTall(..), MirrorResize(..))
 -- hooks
 import XMonad.Hooks.DynamicLog
@@ -32,8 +28,8 @@ myConfig = defaultConfig { modMask = mod4Mask,
                            layoutHook = myLayoutHook,
                            manageHook = myManageHook,
                            handleEventHook = myEventHook,
-                           borderWidth = 1,
-                           normalBorderColor = "#2b303b",
+                           borderWidth = 3,
+                           normalBorderColor = "#aaaaaa",
                            focusedBorderColor = "#bf616a",
                            focusFollowsMouse = False,
                            keys = myKeys
@@ -44,7 +40,10 @@ myWorkspaces :: [String]
 myWorkspaces = map show [0..5]
 
 -- Layouts
-myLayoutHook = avoidStruts $ smartBorders $ ResizableTall 1 (5/100) (1/2) []
+myLayoutHook = smartSpacingWithEdge 4
+             $ avoidStruts
+             $ smartBorders
+             $ ResizableTall 1 (5/100) (1/2) []
 
 -- Manage
 myManageHook = composeAll [ isFullscreen            --> doFullFloat

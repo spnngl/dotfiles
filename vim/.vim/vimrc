@@ -92,9 +92,9 @@ set completeopt=menuone,preview,longest
 
 " colors
 " dark
-" colorscheme fahrenheit
+colorscheme fahrenheit
 " light
-colorscheme genericdc-light
+"colorscheme genericdc-light
 syntax on
 
 " (au)commands

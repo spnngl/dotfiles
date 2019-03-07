@@ -150,6 +150,15 @@ com! Nows :%s/\s\+$//
 " remove blank lines
 com! Nobl :g/^\s*$/d
 
+" cscope shortcuts
+com! -nargs=1 Cfg :cs find g <args>
+com! -nargs=1 Cfe :cs find e <args>
+com! -nargs=1 Cft :cs find t <args>
+
+nnoremap <leader>g :cscope find g<space>
+nnoremap <leader>e :cscope find e<space>
+
+" auto parenthesis
 onoremap in( :<c-u>normal! f(vi(<cr>
 onoremap il( :<c-u>normal! F)vi(<cr>
 

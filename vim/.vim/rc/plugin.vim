@@ -7,7 +7,7 @@ Plugin 'gmarik/Vundle.vim'
 
 " Other(s) plugins "
 Plugin 'scrooloose/nerdtree'
-let NERDTreeIgnore=['\.pyc$', '\~$']
+let NERDTreeIgnore=['\.pyc$', '\~$','\.o','\.so','\.a']
 let g:NERDTreeDirArrowExpandable="+"
 let g:NERDTreeDirArrowCollapsible="-"
 map <C-n> :NERDTreeToggle<CR>
@@ -22,11 +22,13 @@ set noshowmode
 "Bundle 'zah/nim.vim'
 "Bundle 'baabelfish/nvim-nim'
 Plugin 'junegunn/fzf.vim'
+Plugin 'junegunn/vim-easy-align'
+Plugin 'rking/ag.vim'
 
-Plugin 'w0rp/ale'
-let g:ale_linters_aliases = {'cc': 'cpp'}
-let g:ale_lint_on_text_changed = 'never'
-let g:ale_lint_on_enter = 0
+"Plugin 'w0rp/ale'
+"let g:ale_linters_aliases = {'cc': 'cpp'}
+"let g:ale_lint_on_text_changed = 'never'
+"let g:ale_lint_on_enter = 0
 
 call vundle#end()
 filetype plugin indent on

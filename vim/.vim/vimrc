@@ -76,7 +76,9 @@ set noswapfile
 set ignorecase smartcase infercase
 
 " indent options "
-set tabstop=4 shiftwidth=4 expandtab
+set tabstop=4 shiftwidth=4
+" expandtab = spaces for tabs, noexpandtab=tabs
+set expandtab
 set shiftround
 set autoindent
 set smarttab
@@ -96,6 +98,10 @@ colorscheme fahrenheit
 " light
 "colorscheme genericdc-light
 syntax on
+
+" use real tab for linux project(s) instead of spaces
+autocmd BufNewFile,BufRead ~/src/linux/* set noexpandtab
+autocmd BufNewFile,BufRead ~/src/linux_yke/* set noexpandtab
 
 " (au)commands
 aug wscleaning
@@ -139,6 +145,7 @@ aug filetypeGroup
     au!
     au BufNewFile,BufRead *.cls set filetype=tex
     au BufNewFile,BufRead *.cc set filetype=cpp
+    au BufNewFile,BufRead *.patch set filetype=diff
 aug end
 
 " remove ms eol
@@ -187,3 +194,6 @@ aug markdown
         exe "redraw!"
     endfu
 aug end
+
+" doxygen command plugin
+nnoremap <leader>d :Dox<cr><esc>

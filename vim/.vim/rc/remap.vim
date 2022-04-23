@@ -109,8 +109,8 @@ nmap <C-b> :Buffers<cr>
 nmap <leader>j :Tags<cr>
 
 " ag shortcut
-nnoremap è :Ag<space>
-nnoremap <leader>è :Ag<cr>
+nnoremap è :Rg<space>
+"nnoremap <leader>è :Ag<cr>
 " always search from root project instead of cwd
-let g:ag_working_path_mode="r"
-let g:ackprg = 'ag --nogroup --nocolor --column'
+"let g:ag_working_path_mode="r"
+"let g:ackprg = 'ag --nogroup --nocolor --column'

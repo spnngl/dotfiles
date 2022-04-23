@@ -8,9 +8,6 @@ set nocompatible noerrorbells
 let mapleader = "à"
 filetype on
 
-" tidy
-set viminfo+=n~/.vim/viminfo
-
 source $HOME/.vim/rc/remap.vim
 source $HOME/.vim/rc/plugin.vim
 
@@ -32,7 +29,7 @@ if filereadable(s:cspfile)
 endif
 
 " divers
-set modelines=0
+set modelines=5
 set number                      " show line number
 set ruler                       " show cursor position
 set backspace=indent,eol,start  " powerful backspace
@@ -58,7 +55,7 @@ set lazyredraw
 set fileformats=unix,dos,mac    " prefer Unix over Windows over OS 9 formats
 
 " crypt
-setlocal cm=blowfish2
+"setlocal cm=blowfish2
 
 " make vim to handle long lines nicely.
 set wrap
@@ -68,9 +65,20 @@ set formatoptions=qrn1
 "hi ColorColumn ctermbg=lightgrey
 
 " undo & backup & swap
-set undofile undodir=~/.vim/undo undolevels=1000 "undoreload=1000
-set nobackup nowritebackup backupdir=~/.vim/backup
-set noswapfile
+if !has('nvim')
+    " tidy
+    set viminfo+=n~/.vim/viminfo
+    set undofile undodir=~/.vim/undo undolevels=1000 "undoreload=1000
+    set nobackup nowritebackup backupdir=~/.vim/backup
+    set noswapfile
+else
+    " tidy
+    set viminfo+=n~/.vim/nviminfo
+    set undofile undodir=~/.vim/nundo undolevels=1000 "undoreload=1000
+    set nobackup nowritebackup backupdir=~/.vim/backup
+    set noswapfile
+endif
+"rst
 
 " good search
 set ignorecase smartcase infercase
@@ -146,6 +154,9 @@ aug filetypeGroup
     au BufNewFile,BufRead *.cls set filetype=tex
     au BufNewFile,BufRead *.cc set filetype=cpp
     au BufNewFile,BufRead *.patch set filetype=diff
+    au BufRead,BufNewFile *.modulemap set filetype=modulemap
+    au BufRead,BufNewFile *.service set filetype=systemd
+    au BufRead,BufNewFile *.target set filetype=systemd
 aug end
 
 " remove ms eol
@@ -197,3 +208,31 @@ aug end
 
 " doxygen command plugin
 nnoremap <leader>d :Dox<cr><esc>
+
+" clang-format
+nnoremap <leader>f :!clang-format -i --style=file %:p<cr><esc>
+
+aug rust_settings
+    au!
+    " automatic lint on write
+    "au BufWritePre *.rs silent! :%! rustfmt
+aug end
+
+aug golang_settings
+    au!
+    " automatic lint
+    "au BufWritePre *.go silent! :%! gofmt -s
+    au BufRead,BufNewFile *.go set noexpandtab
+    "nnoremap <leader>f :%! gofmt -s <cr><esc>
+aug end
+
+aug terraform_settings
+    au!
+    au BufRead,BufNewFile *.tf set filetype=hcl
+    au BufRead,BufNewFile *.tf set tabstop=2 shiftwidth=2
+    au BufRead,BufNewFile *.yml set tabstop=2 shiftwidth=2
+    au BufRead,BufNewFile *.tfvars set filetype=hcl
+    au BufRead,BufNewFile .terraformrc set filetype=hcl
+    au BufRead,BufNewFile terraform.rc set filetype=hcl
+    au BufRead,BufNewFile *.tfstate set filetype=json
+aug end

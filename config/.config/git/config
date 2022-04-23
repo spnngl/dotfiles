@@ -24,6 +24,7 @@
     editor = vim
     autocrlf = input
     whitespace = trailing-space
+    excludesFile = ~/.config/git/ignore
 [color]
     ui = true
 [difftool]

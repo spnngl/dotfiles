@@ -3,3 +3,4 @@
 *.o
 *.py[oc]
 *.out
+tags

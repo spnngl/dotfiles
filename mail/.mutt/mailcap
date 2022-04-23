@@ -2,7 +2,7 @@ text/html; w3m %s; nametemplate=%s.html
 text/html; w3m -dump %s; nametemplate=%s.html; copiousoutput
 
 image/*; feh %s;
-application/pdf; mupdf %s;
+application/pdf; okular %s;
 
 #MS office documents
 application/excel; $HOME/.mutt/mutt_bgrun libreoffice %s

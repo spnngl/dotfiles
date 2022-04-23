@@ -3,19 +3,12 @@
 # ╹ ╹┗━┛ ╹  ╹ ╹┗╸┗━╸
 
 # accounts (do not upload)
-macro index <F1> '<sync-mailbox><enter-command>source $HOME/.mutt/accounts/xy<enter><change-folder>!<enter>'
-macro index <F2> '<sync-mailbox><enter-command>source $HOME/.mutt/accounts/a2<enter><change-folder>!<enter>'
-macro index <F3> '<sync-mailbox><enter-command>source $HOME/.mutt/accounts/tvty<enter><change-folder>!<enter>'
-macro index <F4> '<sync-mailbox><enter-command>source $HOME/.mutt/accounts/spnngl<enter><change-folder>!<enter>'
+macro index <F1> '<sync-mailbox><enter-command>source $HOME/.mutt/accounts/a2<enter><change-folder>!<enter>'
+macro index <F2> '<sync-mailbox><enter-command>source $HOME/.mutt/accounts/v3d<enter><change-folder>!<enter>'
+macro index <F3> '<sync-mailbox><enter-command>source $HOME/.mutt/accounts/sah<enter><change-folder>!<enter>'
 
 # default
-source $HOME/.mutt/accounts/spnngl
-
-# hooks
-folder-hook 'xy' 'source $HOME/.mutt/accounts/xy'
-folder-hook 'a2' 'source $HOME/.mutt/accounts/a2'
-folder-hook 'tvty' 'source $HOME/.mutt/accounts/tvty'
-folder-hook 'spnngl' 'source $HOME/.mutt/accounts/spnngl'
+source $HOME/.mutt/accounts/a2
 
 # others
 # source $HOME/.mutt/sidebar
@@ -40,7 +33,7 @@ set delete                  = yes
 set user_agent              = no
 set dsn_notify              = "failure,delay,success"
 set editor                  = "vim -c 'set syntax=mail ft=mail enc=utf-8'"
-set pager                   = /usr/bin/less
+#set pager                   = /usr/bin/less
 set charset                 = 'utf-8'
 set send_charset            = 'utf-8'
 set sort                    = threads
@@ -50,6 +43,17 @@ set index_format            = "%2C | %Z [%d] %-30.30F (%-4.4c) %s"
 set mailcap_path            = $HOME/.mutt/mailcap
 auto_view text/html
 #auto_view application/pdf
+
+# Avoid too much headers in mails
+ignore *        	 # this means "ignore all headers by default"
+unignore From:
+unignore To:
+unignore Reply-To:
+unignore Mail-Followup-To:
+unignore Subject:
+unignore Date:
+unignore CC:
+unignore BCC:
 
 # Pager View Options
 #set pager_index_lines = 10 # number of index lines to show

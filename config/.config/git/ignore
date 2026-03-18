@@ -4,3 +4,6 @@
 *.py[oc]
 *.out
 tags
+
+**/.claude/settings.local.json
+**/.pi/readcache

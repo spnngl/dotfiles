@@ -1,7 +1,7 @@
 [user]
-	name = unk now
-	email = unk@now.com
-    #signingKey =
+	name = Lola Delannoy
+	email = ldelannoy@wiremind.io
+    signingkey = CADE17CA304170A9
 [commit]
 	gpgsign = false
     #template = "~/.config/git/msg"
@@ -21,7 +21,7 @@
     b = branch
     last = log -1 HEAD
 [core]
-    editor = vim
+    editor = /bin/nvim
     autocrlf = input
     whitespace = trailing-space
     excludesFile = ~/.config/git/ignore
@@ -36,3 +36,5 @@
     ff   = no
 [gpg]
 	program = /usr/bin/gpg
+[init]
+	defaultBranch = main

@@ -14,14 +14,16 @@ source $HOME/.vim/rc/plugin.vim
 " auto-complete c
 set path=/usr/include,/usr/local/include,/usr/local/lib
 
-" cscope
-set cscopeprg=/usr/bin/cscope
-set cscoperelative
-set cscopetag
-"set cst
-set csto=0
-set nocscopeverbose
-set cscopequickfix=s-,c-,d-,i-,t-,e-
+if has("cscope")
+    " cscope
+    set cscopeprg=/usr/bin/cscope
+    set cscoperelative
+    set cscopetag
+    "set cst
+    set csto=0
+    set nocscopeverbose
+    set cscopequickfix=s-,c-,d-,i-,t-,e-
+endif
 
 let s:cspfile = "cscope.out"
 if filereadable(s:cspfile)
@@ -77,6 +79,7 @@ else
     set undofile undodir=~/.vim/nundo undolevels=1000 "undoreload=1000
     set nobackup nowritebackup backupdir=~/.vim/backup
     set noswapfile
+    set mouse=
 endif
 "rst
 
@@ -157,6 +160,14 @@ aug filetypeGroup
     au BufRead,BufNewFile *.modulemap set filetype=modulemap
     au BufRead,BufNewFile *.service set filetype=systemd
     au BufRead,BufNewFile *.target set filetype=systemd
+    au BufNewFile,BufRead *.nim set filetype=nim
+    au BufNewFile,BufRead *.gotmpl set filetype=helm
+    au BufNewFile,BufRead *.nft set filetype=nftables
+    au BufNewFile,BufRead *.ign set filetype=json
+    au BufNewFile,BufRead *.tftpl set filetype=yaml
+    au BufNewFile,BufRead *.json5 set filetype=json
+    au BufNewFile,BufRead Dockerfile* set filetype=dockerfile
+    au BufNewFile,BufRead Containerfile* set filetype=dockerfile
 aug end
 
 " remove ms eol
@@ -208,9 +219,6 @@ aug end
 
 " doxygen command plugin
 nnoremap <leader>d :Dox<cr><esc>
-
-" clang-format
-nnoremap <leader>f :!clang-format -i --style=file %:p<cr><esc>
 
 aug rust_settings
     au!

@@ -1,0 +1,5 @@
+history*
+
+# plugin's data folder
+vendor
+plugin*

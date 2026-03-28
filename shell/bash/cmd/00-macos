@@ -1,0 +1,4 @@
+if [[ "$(uname -s)" == "Darwin" ]]; then
+    # Homebrew things, see https://brew.sh/
+    eval "$(/opt/homebrew/bin/brew shellenv bash)"
+fi

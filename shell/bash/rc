@@ -1,0 +1,47 @@
+#!/usr/bin/env bash
+
+# Source global definitions
+if [[ -f /etc/bashrc ]]; then
+    . /etc/bashrc
+fi
+
+# Enable bash programmable completion features in interactive shells
+if [[ -f /usr/share/bash-completion/bash_completion ]]; then
+    . /usr/share/bash-completion/bash_completion
+elif [[ -f /etc/bash_completion ]]; then
+    . /etc/bash_completion
+fi
+
+# Load all local sub-files
+for f in "${HOME}"/.bash/cmd/*; do
+    [[ -f ${f} ]] && source "${f}"
+done
+
+# Check the window size after each command and, if necessary, update the values of LINES and COLUMNS
+shopt -s checkwinsize
+
+# Causes bash to append to history instead of overwriting it so if you start a new terminal, you have old session history
+shopt -s histappend
+PROMPT_COMMAND='history -a'
+
+# Environment variables
+set -o allexport
+
+CLICOLOR=1
+EDITOR=nvim
+TOP='-s 1'
+PAGER=less
+
+HISTFILE=${HOME}/.bash/history
+HISTFILESIZE=10000
+HISTSIZE=4096
+# Don't put duplicate lines in the history and do not add lines that start with a space
+HISTCONTROL=erasedups:ignoredups:ignorespace
+
+PATH=${HOME}/bin:${PATH}
+
+set +o allexport
+
+# Aliases
+alias ls="ls --color"
+alias ll="ls -lh --color"

@@ -1,0 +1,42 @@
+#!/usr/bin/env bash
+
+# Clone git repos to ~/src preserving full path structure
+# Always uses SSH for cloning
+
+gclone() {
+    if [[ $# -ne 1 ]]; then
+        echo "Usage: gclone <git-url>"
+        echo "Clone a git repo to ~/src/{host}/{path} using SSH"
+        return 1
+    fi
+
+    local url="${1%/}"
+    local host=""
+    local path=""
+
+    if [[ ${url} =~ ^https?:// ]]; then
+        host=$(echo "${url}" | sed -E 's|^https?://([^/]+)/.*|\1|')
+        path=$(echo "${url}" | sed -E 's|^https?://[^/]+/||')
+    elif [[ ${url} =~ ^git@ ]]; then
+        host=$(echo "${url}" | sed -E 's|^git@([^:]+):.*|\1|')
+        path=$(echo "${url}" | sed -E 's|^git@[^:]+:||')
+    else
+        echo "Error: Unsupported URL format"
+        return 1
+    fi
+
+    path="${path%.git}"
+
+    local ssh_url="git@${host}:${path}.git"
+    local target_dir="${HOME}/src/${host}/${path}"
+
+    if [[ -d ${target_dir} ]]; then
+        echo "Already exists: ${target_dir}"
+        cd "${target_dir}" || return 1
+    else
+        echo "Cloning: ${ssh_url}"
+        echo "     To: ${target_dir}"
+        mkdir -p "$(dirname "${target_dir}")"
+        git clone "${ssh_url}" "${target_dir}" && cd "${target_dir}" || return 1
+    fi
+}

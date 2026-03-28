@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+
+# Aliases
+
+alias k="kubectl"
+
+# Environment variables
+set -o allexport
+
+KUBECONFIG=$(find "${HOME}/.kube/" -type f -name "config-*" | tr '\n' ':')
+
+set +o allexport
+
+# Commands
+
+nodedebug() {
+    kubectl debug -n kube-system -it --image "docker.io/library/debian:trixie node/$1" --image-pull-policy=IfNotPresent --profile=sysadmin
+}
